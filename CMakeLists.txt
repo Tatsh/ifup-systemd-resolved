@@ -36,7 +36,7 @@ ecm_qt_declare_logging_category(
 
 find_package(
   Qt5
-  COMPONENTS DBus Network Widgets
+  COMPONENTS DBus Network
   REQUIRED)
 
 add_definitions(
