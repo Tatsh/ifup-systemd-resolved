@@ -16,41 +16,46 @@ static void up() {
                        QStringLiteral("/org/freedesktop/resolve1"),
                        QStringLiteral("org.freedesktop.resolve1.Manager"),
                        QDBusConnection::systemBus());
-    const auto devIndex =
-        QNetworkInterface::interfaceFromName(
-            QString(qEnvironmentVariable("NET_DEVICE")).trimmed())
-            .index();
-    LinkDNSIPv4List dnsArgs;
-    for (auto ipAddress :
-         QString(qEnvironmentVariable("DNS_SERVERS"))
-             .trimmed()
-             .split(QStringLiteral(" "), Qt::SkipEmptyParts)) {
-        LinkDNSIPv4 add;
-        add.family = 2;
-        for (auto val :
-             ipAddress.split(QStringLiteral("."), Qt::SkipEmptyParts)) {
-            add.ipAddress << val.toUInt();
+    if (iface.isValid()) {
+        const auto devIndex =
+            QNetworkInterface::interfaceFromName(
+                QString(qEnvironmentVariable("NET_DEVICE")).trimmed())
+                .index();
+        LinkDNSIPv4List dnsArgs;
+        for (auto ipAddress :
+             QString(qEnvironmentVariable("DNS_SERVERS"))
+                 .trimmed()
+                 .split(QStringLiteral(" "), Qt::SkipEmptyParts)) {
+            LinkDNSIPv4 add;
+            add.family = 2;
+            for (auto val :
+                 ipAddress.split(QStringLiteral("."), Qt::SkipEmptyParts)) {
+                add.ipAddress << val.toUInt();
+            }
+            dnsArgs << add;
         }
-        dnsArgs << add;
-    }
-    if (dnsArgs.length() > 0 && iface.isValid()) {
-        qCDebug(LOG_IFUP_SYSTEMD_RESOLVED)
-            << iface.call(QStringLiteral("SetLinkDNS"),
-                          devIndex,
-                          QVariant::fromValue(dnsArgs));
-    }
-    LinkDomainsList domainsArg;
-    for (auto domain : QString(qEnvironmentVariable("DNS_SUFFIX"))
-                           .trimmed()
-                           .split(QStringLiteral(" "), Qt::SkipEmptyParts)) {
-        LinkDomains add{domain, false};
-        domainsArg << add;
-    }
-    if (domainsArg.length() > 0) {
-        qCDebug(LOG_IFUP_SYSTEMD_RESOLVED)
-            << iface.call(QStringLiteral("SetLinkDomains"),
-                          devIndex,
-                          QVariant::fromValue(domainsArg));
+        if (dnsArgs.length() > 0) {
+            qCDebug(LOG_IFUP_SYSTEMD_RESOLVED)
+                << iface.call(QStringLiteral("SetLinkDNS"),
+                              devIndex,
+                              QVariant::fromValue(dnsArgs));
+        }
+        LinkDomainsList domainsArg;
+        for (auto domain :
+             QString(qEnvironmentVariable("DNS_SUFFIX"))
+                 .trimmed()
+                 .split(QStringLiteral(" "), Qt::SkipEmptyParts)) {
+            LinkDomains add{domain, false};
+            domainsArg << add;
+        }
+        if (domainsArg.length() > 0) {
+            qCDebug(LOG_IFUP_SYSTEMD_RESOLVED)
+                << iface.call(QStringLiteral("SetLinkDomains"),
+                              devIndex,
+                              QVariant::fromValue(domainsArg));
+        }
+    } else {
+        qCCritical(LOG_IFUP_SYSTEMD_RESOLVED) << "Invalid interface!";
     }
 }
 
