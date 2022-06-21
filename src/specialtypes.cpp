@@ -7,8 +7,7 @@ QDBusArgument &operator<<(QDBusArgument &argument, const LinkDNSIPv4 &ld) {
     return argument;
 }
 
-const QDBusArgument &operator>>(const QDBusArgument &argument,
-                                LinkDNSIPv4 &ld) {
+const QDBusArgument &operator>>(const QDBusArgument &argument, LinkDNSIPv4 &ld) {
     argument.beginStructure();
     argument >> ld.family >> ld.ipAddress;
     argument.endStructure();
@@ -22,8 +21,7 @@ QDBusArgument &operator<<(QDBusArgument &argument, const LinkDomains &ld) {
     return argument;
 }
 
-const QDBusArgument &operator>>(const QDBusArgument &argument,
-                                LinkDomains &ld) {
+const QDBusArgument &operator>>(const QDBusArgument &argument, LinkDomains &ld) {
     argument.beginStructure();
     argument >> ld.domain >> ld.b;
     argument.endStructure();
