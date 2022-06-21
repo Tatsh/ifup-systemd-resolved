@@ -10,11 +10,6 @@
 #include "ifupdebug.h"
 #include "specialtypes.h"
 
-static const QString resolve1DBusDomain =
-    QStringLiteral("org.freedesktop.resolve1");
-static const QString resolve1DBusPath =
-    QStringLiteral("/org/freedesktop/resolve1");
-
 static void up() {
     auto iface =
         QDBusInterface(QStringLiteral("org.freedesktop.resolve1"),
