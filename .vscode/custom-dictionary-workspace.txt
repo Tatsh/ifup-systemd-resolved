@@ -1,0 +1,16 @@
+confdir
+gpgsign
+ifup
+killall
+lmrc
+logdir
+logfile
+openfortivpn
+pgrep
+pidfile
+pinentry
+privoxy
+rcoffice
+ringcentral
+sslvpncdg
+udvare
