@@ -1,10 +1,6 @@
 #include <QtCore/QCoreApplication>
-#include <QtDBus/QDBusArgument>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
-#include <QtDBus/QDBusMessage>
-#include <QtDBus/QDBusMetaType>
-#include <QtNetwork/QHostAddress>
 #include <QtNetwork/QNetworkInterface>
 
 #include "ifupdebug.h"
