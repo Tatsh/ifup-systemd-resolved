@@ -1,6 +1,6 @@
 # ifup-systemd-resolved
 
-This script is primarily for use with [openfortivpn](https://github.com/adrienverge/openfortivpn),
+This tool is primarily for use with [openfortivpn](https://github.com/adrienverge/openfortivpn),
 [patched](https://github.com/adrienverge/openfortivpn/pull/615)
 ([alternative](https://github.com/adrienverge/openfortivpn/pull/986/files))
 to allow for hook scripts.
