@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.23)
 project(ifup-systemd-resolved VERSION 0.0.1)
 
+include(FeatureSummary)
 include(FindPkgConfig)
 include(GNUInstallDirs)
 
@@ -10,7 +11,6 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include(FeatureSummary)
 find_package(ECM 5.95.0 NO_MODULE REQUIRED)
 find_package(
   Qt5
@@ -20,11 +20,14 @@ find_package(
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
-include(KDEInstallDirs)
 include(ECMQtDeclareLoggingCategory)
+include(KDEInstallDirs)
 
 set(IFUP_SRCS src/main.cpp src/specialtypes.cpp)
-
+set(RESOLVE1_MANAGER_XML org.freedesktop.resolve1.Manager.xml)
+set_source_files_properties(${RESOLVE1_MANAGER_XML} PROPERTIES INCLUDE specialtypes.h
+                                                               CLASSNAME Resolve1Manager)
+qt_add_dbus_interface(IFUP_SRCS ${RESOLVE1_MANAGER_XML} resolve1_interface)
 ecm_qt_declare_logging_category(
   IFUP_SRCS
   HEADER
@@ -48,7 +51,7 @@ if(CMAKE_BUILD_TYPE STREQUAL Debug)
     add_compile_options(-ggdb -Wall -Werror -Wextra)
   endif()
 endif()
-include_directories(src ${CMAKE_CURRENT_BINARY_DIR}/generated)
+include_directories(src ${CMAKE_CURRENT_BINARY_DIR}/generated ${CMAKE_CURRENT_BINARY_DIR})
 add_executable(ifup-systemd-resolved ${IFUP_SRCS}
                                      ${CMAKE_CURRENT_BINARY_DIR}/generated/ifupdebug.cpp)
 target_link_libraries(ifup-systemd-resolved Qt5::DBus Qt5::Network)

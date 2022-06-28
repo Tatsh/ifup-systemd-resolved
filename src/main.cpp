@@ -5,13 +5,13 @@
 
 #include "constants.h"
 #include "ifupdebug.h"
+#include "resolve1_interface.h"
 #include "specialtypes.h"
 
 static void up() {
-    auto iface = QDBusInterface(Strings::DBus::Services::resolve1,
-                                Strings::DBus::Paths::resolve1,
-                                Strings::DBus::Interfaces::resolve1Manager,
-                                QDBusConnection::systemBus());
+    Resolve1Manager iface(Strings::DBus::Services::resolve1,
+                          Strings::DBus::Paths::resolve1,
+                          QDBusConnection::systemBus());
     if (iface.isValid()) {
         const auto devIndex =
             QNetworkInterface::interfaceFromName(Strings::EnvironmentVariables::netDevice).index();
@@ -26,10 +26,11 @@ static void up() {
             dnsArgs << add;
         }
         if (dnsArgs.length() > 0) {
-            qCDebug(LOG_IFUP_SYSTEMD_RESOLVED)
-                << iface.call(Strings::DBus::Resolve1::Methods::setLinkDNS,
-                              devIndex,
-                              QVariant::fromValue(dnsArgs));
+            auto res = iface.SetLinkDNS(devIndex, dnsArgs);
+            res.waitForFinished();
+            if (res.isError()) {
+                qFatal("SetLinkDNS failed");
+            }
         }
         LinkDomainsList domainsArg;
         for (auto domain : Strings::EnvironmentVariables::dnsSuffix.split(Strings::singleSpace,
@@ -38,13 +39,14 @@ static void up() {
             domainsArg << add;
         }
         if (domainsArg.length() > 0) {
-            qCDebug(LOG_IFUP_SYSTEMD_RESOLVED)
-                << iface.call(Strings::DBus::Resolve1::Methods::setLinkDomains,
-                              devIndex,
-                              QVariant::fromValue(domainsArg));
+            auto res = iface.SetLinkDomains(devIndex, domainsArg);
+            res.waitForFinished();
+            if (res.isError()) {
+                qFatal("SetLinkDomains failed");
+            }
         }
     } else {
-        qCCritical(LOG_IFUP_SYSTEMD_RESOLVED) << "Invalid interface!";
+        qFatal("Invalid interface!");
     }
 }
 
@@ -52,8 +54,7 @@ int main(int argc, char *argv[]) {
     QCoreApplication app(argc, argv);
     registerDBusTypes();
     if (!QDBusConnection::systemBus().isConnected()) {
-        qCCritical(LOG_IFUP_SYSTEMD_RESOLVED) << "Failed to connect to system bus.";
-        return 1;
+        qFatal("Failed to connect to system bus.");
     }
     up();
     return 0;

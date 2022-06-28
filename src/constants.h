@@ -13,15 +13,6 @@ namespace Strings {
         namespace Paths {
             const QString resolve1 = QStringLiteral("/org/freedesktop/resolve1");
         }
-        namespace Interfaces {
-            const QString resolve1Manager = QStringLiteral("org.freedesktop.resolve1.Manager");
-        }
-        namespace Resolve1 {
-            namespace Methods {
-                const QString setLinkDNS = QStringLiteral("SetLinkDNS");
-                const QString setLinkDomains = QStringLiteral("SetLinkDomains");
-            } // namespace Methods
-        }     // namespace Resolve1
     }         // namespace DBus
     namespace EnvironmentVariables {
         const QString dnsServers = QString(qEnvironmentVariable("DNS_SERVERS")).trimmed();
