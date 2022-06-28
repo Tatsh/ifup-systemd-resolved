@@ -23,7 +23,7 @@ list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 include(ECMQtDeclareLoggingCategory)
 include(KDEInstallDirs)
 
-set(IFUP_SRCS src/main.cpp src/specialtypes.cpp)
+set(IFUP_SRCS src/constants.h src/main.cpp src/specialtypes.cpp src/specialtypes.h)
 set(RESOLVE1_MANAGER_XML org.freedesktop.resolve1.Manager.xml)
 set_source_files_properties(${RESOLVE1_MANAGER_XML} PROPERTIES INCLUDE specialtypes.h
                                                                CLASSNAME Resolve1Manager)
