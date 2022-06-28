@@ -1,3 +1,6 @@
+#ifndef SPECIALTYPES_H
+#define SPECIALTYPES_H
+
 #include <QtDBus/QDBusMetaType>
 
 struct LinkDNSIPv4 {
@@ -17,3 +20,5 @@ typedef QList<LinkDomains> LinkDomainsList;
 Q_DECLARE_METATYPE(LinkDomainsList)
 
 void registerDBusTypes();
+
+#endif // SPECIALTYPES_H
