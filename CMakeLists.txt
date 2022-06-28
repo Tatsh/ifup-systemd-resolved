@@ -11,14 +11,14 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(FeatureSummary)
-find_package(ECM 5.95.0 NO_MODULE)
-set_package_properties(
-  ECM PROPERTIES
-  TYPE REQUIRED
-  DESCRIPTION "Extra CMake Modules."
-  URL "https://commits.kde.org/extra-cmake-modules")
-feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND
-                FATAL_ON_MISSING_REQUIRED_PACKAGES)
+find_package(ECM 5.95.0 NO_MODULE REQUIRED)
+find_package(
+  Qt5
+  COMPONENTS DBus Network
+  REQUIRED)
+
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
+
 list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 include(KDEInstallDirs)
 include(ECMQtDeclareLoggingCategory)
@@ -34,11 +34,6 @@ ecm_qt_declare_logging_category(
   CATEGORY_NAME
   "sh.tat.ifup-systemd-resolved")
 
-find_package(
-  Qt5
-  COMPONENTS DBus Network
-  REQUIRED)
-
 add_definitions(
   -DQT_NO_CAST_FROM_ASCII
   -DQT_NO_CAST_FROM_BYTEARRAY
@@ -48,9 +43,14 @@ add_definitions(
   -DQT_STRICT_ITERATORS
   -DQT_USE_FAST_OPERATOR_PLUS
   -DQT_USE_QSTRINGBUILDER)
+if(CMAKE_BUILD_TYPE STREQUAL Debug)
+  if(CMAKE_CXX_COMPILER_ID STREQUAL GNU OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
+    add_compile_options(-ggdb -Wall -Werror -Wextra)
+  endif()
+endif()
 include_directories(src ${CMAKE_CURRENT_BINARY_DIR}/generated)
-add_executable(ifup-systemd-resolved
-               ${IFUP_SRCS} ${CMAKE_CURRENT_BINARY_DIR}/generated/ifupdebug.cpp)
+add_executable(ifup-systemd-resolved ${IFUP_SRCS}
+                                     ${CMAKE_CURRENT_BINARY_DIR}/generated/ifupdebug.cpp)
 target_link_libraries(ifup-systemd-resolved Qt5::DBus Qt5::Network)
 
 install(TARGETS ifup-systemd-resolved)
