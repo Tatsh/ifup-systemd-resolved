@@ -27,6 +27,7 @@ static void up() {
                     add.ipAddress << ((ipv4 >> shift) & 0xFF);
                 }
             } else {
+                add.family = AF_INET6;
                 const auto ipv6 = addr.toIPv6Address();
                 for (auto i = 0; i < 16; i++) {
                     add.ipAddress << ipv6[i];
