@@ -1,15 +1,17 @@
 #ifndef SPECIALTYPES_H
 #define SPECIALTYPES_H
 
+#include <sys/socket.h>
+
 #include <QtDBus/QDBusMetaType>
 
-struct LinkDNSIPv4 {
-    int family;
+struct LinkDnsIp {
+    int family = AF_INET;
     QList<uchar> ipAddress;
 };
-Q_DECLARE_METATYPE(LinkDNSIPv4)
-typedef QList<LinkDNSIPv4> LinkDNSIPv4List;
-Q_DECLARE_METATYPE(LinkDNSIPv4List)
+Q_DECLARE_METATYPE(LinkDnsIp)
+typedef QList<LinkDnsIp> LinkDnsIpList;
+Q_DECLARE_METATYPE(LinkDnsIpList)
 
 struct LinkDomains {
     QString domain;

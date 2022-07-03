@@ -1,13 +1,13 @@
 #include "specialtypes.h"
 
-QDBusArgument &operator<<(QDBusArgument &argument, const LinkDNSIPv4 &ld) {
+QDBusArgument &operator<<(QDBusArgument &argument, const LinkDnsIp &ld) {
     argument.beginStructure();
     argument << ld.family << ld.ipAddress;
     argument.endStructure();
     return argument;
 }
 
-const QDBusArgument &operator>>(const QDBusArgument &argument, LinkDNSIPv4 &ld) {
+const QDBusArgument &operator>>(const QDBusArgument &argument, LinkDnsIp &ld) {
     argument.beginStructure();
     argument >> ld.family >> ld.ipAddress;
     argument.endStructure();
@@ -29,8 +29,8 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, LinkDomains &ld) 
 }
 
 void registerDBusTypes() {
-    qDBusRegisterMetaType<LinkDNSIPv4>();
-    qDBusRegisterMetaType<LinkDNSIPv4List>();
+    qDBusRegisterMetaType<LinkDnsIp>();
+    qDBusRegisterMetaType<LinkDnsIpList>();
     qDBusRegisterMetaType<LinkDomains>();
     qDBusRegisterMetaType<LinkDomainsList>();
 }

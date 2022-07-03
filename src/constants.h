@@ -4,8 +4,10 @@
 #include <QtCore/QString>
 
 namespace Strings {
+    const QString empty = QStringLiteral("");
     const QString period = QStringLiteral(".");
     const QString singleSpace = QStringLiteral(" ");
+    const QString dnsSecDefaultValue = QStringLiteral("default");
     namespace DBus {
         namespace Services {
             const QString resolve1 = QStringLiteral("org.freedesktop.resolve1");
@@ -13,8 +15,9 @@ namespace Strings {
         namespace Paths {
             const QString resolve1 = QStringLiteral("/org/freedesktop/resolve1");
         }
-    }         // namespace DBus
+    } // namespace DBus
     namespace EnvironmentVariables {
+        const QString dnsSec = QString(qEnvironmentVariable("DNSSEC")).trimmed();
         const QString dnsServers = QString(qEnvironmentVariable("DNS_SERVERS")).trimmed();
         const QString dnsSuffix = QString(qEnvironmentVariable("DNS_SUFFIX")).trimmed();
         const QString netDevice = QString(qEnvironmentVariable("NET_DEVICE")).trimmed();
