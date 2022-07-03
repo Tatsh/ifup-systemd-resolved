@@ -25,13 +25,14 @@
   "files.associations": {
     "**/bash-completion/completions/*": "shellscript",
     "*.json.dist": "json",
+    "*.moc": "cpp",
+    "*.tcc": "cpp",
     ".bash_functions": "shellscript",
+    ".cmake-format": "yaml",
     ".macos": "shellscript",
     ".psqlrc": "sql",
     ".pythonrc": "python",
     "Portfile": "tcl",
-    "*.moc": "cpp",
-    "*.tcc": "cpp",
     "actionreply": "cpp",
     "algorithm": "cpp",
     "any": "cpp",
@@ -87,6 +88,7 @@
     "optional": "cpp",
     "ostream": "cpp",
     "qloggingcategory": "cpp",
+    "qstringdata": "cpp",
     "random": "cpp",
     "ratio": "cpp",
     "semaphore": "cpp",
@@ -110,7 +112,6 @@
     "utility": "cpp",
     "valarray": "cpp",
     "variant": "cpp",
-    "vector": "cpp",
-    "qstringdata": "cpp"
+    "vector": "cpp"
   }
 }
