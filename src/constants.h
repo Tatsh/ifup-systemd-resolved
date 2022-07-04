@@ -7,7 +7,9 @@ namespace Strings {
     const QString empty = QStringLiteral("");
     const QString period = QStringLiteral(".");
     const QString singleSpace = QStringLiteral(" ");
+#pragma region DNSSEC
     const QString dnsSecDefaultValue = QStringLiteral("default");
+#pragma endregion
     namespace DBus {
         namespace Services {
             const QString resolve1 = QStringLiteral("org.freedesktop.resolve1");

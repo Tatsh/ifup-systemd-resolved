@@ -76,12 +76,15 @@ static void up() {
         doSetLinkDomains(iface, devIndex);
         doSetLinkDnssec(iface, devIndex);
     } else {
+        qCCritical(LOG_IFUP_SYSTEMD_RESOLVED) << iface.lastError();
         qFatal("Invalid interface!");
     }
 }
 
 int main(int argc, char *argv[]) {
     QCoreApplication app(argc, argv);
+    qCDebug(LOG_IFUP_SYSTEMD_RESOLVED)
+        << QStringLiteral("ifup-systemd-resolved v%1").arg(QString::fromLocal8Bit(VERSION));
     registerDBusTypes();
     if (!QDBusConnection::systemBus().isConnected()) {
         qFatal("Failed to connect to system bus.");
