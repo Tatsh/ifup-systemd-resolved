@@ -12,7 +12,8 @@
         "QT_NO_URL_CAST_FROM_STRING",
         "QT_STRICT_ITERATORS",
         "QT_USE_FAST_OPERATOR_PLUS",
-        "QT_USE_QSTRINGBUILDER"
+        "QT_USE_QSTRINGBUILDER",
+        "VERSION=unknown"
       ],
       "includePath": [
         "${workspaceFolder}/src/**",
