@@ -6,14 +6,7 @@
   "[cpp]": {
     "editor.tabSize": 4
   },
-  "cSpell.customDictionaries": {
-    "custom-dictionary-workspace": {
-      "addWords": true,
-      "name": "custom-dictionary-workspace",
-      "path": "${workspaceFolder:rc-scripts}/.vscode/custom-dictionary-workspace.txt",
-      "scope": "workspace"
-    }
-  },
+  "cSpell.enabled": true,
   "cmake.configureArgs": ["-DCMAKE_INSTALL_PREFIX=/usr"],
   "cmakeFormat.args": ["-c", ".cmake-format"],
   "editor.formatOnPaste": true,

@@ -1,6 +1,13 @@
+bytearray
+classname
+cmake
 confdir
+dbus
+dversion
+ggdb
 gpgsign
 ifup
+ifupdebug
 killall
 lmrc
 logdir
@@ -12,5 +19,10 @@ pinentry
 privoxy
 rcoffice
 ringcentral
+specialtypes
+srcs
 sslvpncdg
+strequal
 udvare
+werror
+wextra
