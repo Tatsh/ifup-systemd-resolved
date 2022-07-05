@@ -13,6 +13,7 @@ gtest
 ifup
 ifupdebug
 iwyu
+metatype
 parens
 qstringbuilder
 specialtypes
