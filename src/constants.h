@@ -1,7 +1,7 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
-#include <QtCore/QString>
+#include <QtCore/QStringLiteral>
 
 namespace Strings {
     const QString empty = QStringLiteral("");
