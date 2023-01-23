@@ -8,7 +8,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Packages
-find_package(ECM 5.95.0 NO_MODULE REQUIRED)
+find_package(ECM NO_MODULE REQUIRED)
 find_package(
   Qt5
   COMPONENTS DBus Network
