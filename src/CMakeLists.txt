@@ -23,7 +23,7 @@ add_definitions(
   -DVERSION=\"${CMAKE_PROJECT_VERSION}\")
 if(CMAKE_BUILD_TYPE STREQUAL Debug)
   if(CMAKE_CXX_COMPILER_ID STREQUAL GNU OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
-    add_compile_options(-ggdb -Wall -Werror -Wextra)
+    add_compile_options(-ggdb -Wall -Werror -Wextra -Wno-unknown-pragmas)
   endif()
 endif()
 include_directories(. ${CMAKE_CURRENT_BINARY_DIR}/generated ${CMAKE_CURRENT_BINARY_DIR})
