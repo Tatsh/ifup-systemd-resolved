@@ -10,26 +10,28 @@
 
 namespace EnvVars = Strings::EnvironmentVariables;
 
-static void doSetLinkDns(Resolve1Manager &iface, int devIndex) {
+static void doSetLinkDns(Resolve1Manager &iface, const int devIndex) {
     LinkDnsIpList dnsArgs;
-    for (const auto &ipAddress :
-         EnvVars::dnsServers.split(Strings::singleSpace, Qt::SkipEmptyParts)) {
-        const QHostAddress addr(ipAddress);
-        auto isIpv4 = false;
-        const auto ipv4 = addr.toIPv4Address(&isIpv4);
-        LinkDnsIp add;
-        if (isIpv4) {
-            for (auto shift = 24; shift >= 0; shift -= 8) {
-                add.ipAddress << ((ipv4 >> shift) & 0xFF);
+    auto x = QStringList{EnvVars::dns1, EnvVars::dns2};
+    for (const auto &ipAddress : QStringList{EnvVars::dns1, EnvVars::dns2}) {
+        if (!ipAddress.isEmpty()) {
+            const QHostAddress addr(ipAddress);
+            auto isIpv4 = false;
+            const auto ipv4 = addr.toIPv4Address(&isIpv4);
+            LinkDnsIp add;
+            if (isIpv4) {
+                for (auto shift = 24; shift >= 0; shift -= 8) {
+                    add.ipAddress << ((ipv4 >> shift) & 0xFF);
+                }
+            } else {
+                add.family = AF_INET6;
+                const auto ipv6 = addr.toIPv6Address();
+                for (auto i = 0; i < 16; i++) {
+                    add.ipAddress << ipv6[i];
+                }
             }
-        } else {
-            add.family = AF_INET6;
-            const auto ipv6 = addr.toIPv6Address();
-            for (auto i = 0; i < 16; i++) {
-                add.ipAddress << ipv6[i];
-            }
+            dnsArgs << add;
         }
-        dnsArgs << add;
     }
     if (dnsArgs.length()) {
         auto res = iface.SetLinkDNS(devIndex, dnsArgs);
@@ -40,7 +42,7 @@ static void doSetLinkDns(Resolve1Manager &iface, int devIndex) {
     }
 }
 
-static void doSetLinkDomains(Resolve1Manager &iface, int devIndex) {
+static void doSetLinkDomains(Resolve1Manager &iface, const int devIndex) {
     LinkDomainsList domainsArg;
     for (const auto &domain : EnvVars::dnsSuffix.split(Strings::singleSpace, Qt::SkipEmptyParts)) {
         domainsArg << LinkDomains{domain, false};
@@ -54,7 +56,7 @@ static void doSetLinkDomains(Resolve1Manager &iface, int devIndex) {
     }
 }
 
-static void doSetLinkDnssec(Resolve1Manager &iface, int devIndex) {
+static void doSetLinkDnssec(Resolve1Manager &iface, const int devIndex) {
     if (EnvVars::dnsSec.length()) {
         auto res = iface.SetLinkDNSSEC(
             devIndex,
@@ -70,7 +72,14 @@ static void up() {
     Resolve1Manager iface(Strings::DBus::Services::resolve1,
                           Strings::DBus::Paths::resolve1,
                           QDBusConnection::systemBus());
+    if (EnvVars::netDevice.isEmpty()) {
+        qCCritical(LOG_IFUP_SYSTEMD_RESOLVED) << "Empty net device name.";
+        return;
+    }
     const auto devIndex = QNetworkInterface::interfaceFromName(EnvVars::netDevice).index();
+    if (devIndex == 0) {
+        qCWarning(LOG_IFUP_SYSTEMD_RESOLVED) << "Unusual to have network device index 0";
+    }
     if (iface.isValid()) {
         doSetLinkDns(iface, devIndex);
         doSetLinkDomains(iface, devIndex);
