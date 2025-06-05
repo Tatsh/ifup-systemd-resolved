@@ -20,9 +20,10 @@ namespace Strings {
     } // namespace DBus
     namespace EnvironmentVariables {
         const QString dnsSec = QString(qEnvironmentVariable("DNSSEC")).trimmed();
-        const QString dnsServers = QString(qEnvironmentVariable("DNS_SERVERS")).trimmed();
+        const QString dns1 = QString(qEnvironmentVariable("DNS1")).trimmed();
+        const QString dns2 = QString(qEnvironmentVariable("DNS2")).trimmed();
         const QString dnsSuffix = QString(qEnvironmentVariable("DNS_SUFFIX")).trimmed();
-        const QString netDevice = QString(qEnvironmentVariable("NET_DEVICE")).trimmed();
+        const QString netDevice = QString(qEnvironmentVariable("PPP_IFACE")).trimmed();
     } // namespace EnvironmentVariables
 } // namespace Strings
 
