@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.23)
+cmake_minimum_required(VERSION 3.31)
 project(ifup-systemd-resolved VERSION 0.0.1)
 # Qt variables
 set(CMAKE_AUTOMOC ON)
@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(ECM NO_MODULE REQUIRED)
 find_package(
   Qt6
-  COMPONENTS DBus Network
+  COMPONENTS DBus Network CONFIG
   REQUIRED)
 # Feature summary
 include(FeatureSummary)

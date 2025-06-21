@@ -3,6 +3,7 @@ automoc
 autorcc
 autosort
 autouic
+buildsystems
 bytearray
 classname
 cmake
@@ -22,6 +23,7 @@ openfortivpn
 parens
 pyright
 qstringbuilder
+qtbase
 qtproject
 specialtypes
 srcs
@@ -29,5 +31,6 @@ strequal
 struct
 tatsh
 udvare
+vcpkg
 werror
 wextra

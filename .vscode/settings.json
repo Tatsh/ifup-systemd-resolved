@@ -7,7 +7,6 @@
     "editor.tabSize": 4
   },
   "cSpell.enabled": true,
-  "cmake.configureArgs": ["-DCMAKE_INSTALL_PREFIX=/usr"],
   "cmakeFormat.args": ["-c", ".cmake-format"],
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,

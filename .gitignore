@@ -38,3 +38,4 @@ Thumbs.db
 /.cache/
 node_modules/
 /.yarn/install-state.gz
+/CMakeUserPresets.json
