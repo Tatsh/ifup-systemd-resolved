@@ -67,13 +67,6 @@
     "jsonRecursiveSort": true,
     "overrides": [
       {
-        "files": "*.csproj",
-        "options": {
-          "parser": "xml",
-          "xmlWhitespaceSensitivity": "ignore"
-        }
-      },
-      {
         "files": ["package.json"],
         "options": {
           "parser": "json"
