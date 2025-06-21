@@ -1,4 +1,4 @@
-set(IFUP_SRCS constants.h main.cpp specialtypes.cpp specialtypes.h)
+set(IFUP_SRCS constants.h main.cpp specialtypes.cpp specialtypes.h up.cpp up.h)
 set(RESOLVE1_MANAGER_XML manager.xml)
 set_source_files_properties(${RESOLVE1_MANAGER_XML} PROPERTIES INCLUDE specialtypes.h
                                                                CLASSNAME Resolve1Manager)
@@ -29,4 +29,4 @@ endif()
 include_directories(. ${CMAKE_CURRENT_BINARY_DIR}/generated ${CMAKE_CURRENT_BINARY_DIR})
 add_executable(${CMAKE_PROJECT_NAME} ${IFUP_SRCS}
                                      ${CMAKE_CURRENT_BINARY_DIR}/generated/ifupdebug.cpp)
-target_link_libraries(${CMAKE_PROJECT_NAME} Qt6::DBus Qt6::Network)
+target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE Qt6::DBus Qt6::Network)

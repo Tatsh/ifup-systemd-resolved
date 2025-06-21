@@ -14,14 +14,14 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, LinkDnsIp &ld) {
     return argument;
 }
 
-QDBusArgument &operator<<(QDBusArgument &argument, const LinkDomains &ld) {
+QDBusArgument &operator<<(QDBusArgument &argument, const LinkDomain &ld) {
     argument.beginStructure();
     argument << ld.domain << ld.b;
     argument.endStructure();
     return argument;
 }
 
-const QDBusArgument &operator>>(const QDBusArgument &argument, LinkDomains &ld) {
+const QDBusArgument &operator>>(const QDBusArgument &argument, LinkDomain &ld) {
     argument.beginStructure();
     argument >> ld.domain >> ld.b;
     argument.endStructure();
@@ -31,6 +31,6 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, LinkDomains &ld) 
 void registerDBusTypes() {
     qDBusRegisterMetaType<LinkDnsIp>();
     qDBusRegisterMetaType<LinkDnsIpList>();
-    qDBusRegisterMetaType<LinkDomains>();
-    qDBusRegisterMetaType<LinkDomainsList>();
+    qDBusRegisterMetaType<LinkDomain>();
+    qDBusRegisterMetaType<LinkDomainList>();
 }
