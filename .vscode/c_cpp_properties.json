@@ -17,7 +17,6 @@
       ],
       "includePath": [
         "${workspaceFolder}/src/**",
-        "${workspaceFolder}/build/rcvpn-helper_autogen/include",
         "${workspaceFolder}/build/generated",
         "/usr/include/KF6/KAuthCore",
         "/usr/include/KF6/KCoreAddons",

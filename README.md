@@ -40,21 +40,20 @@ Environment variables must be set for this application to do anything.
 | `DNS_SERVERS` | DNS server IPs and names. Both IPv4 and IPv6 are supported.                               |
 | `DNS_SUFFIX`  | Search domains.                                                                           |
 | `DNSSEC`      | If non-empty, it should be `default`, `yes`, `no`, or `allow-downgrade`.                  |
-| `NET_DEVICE`  | Name of the device (see `ifconfig` or similar). Usually this something similar to `ppp0`. |
+| `PPP_IFACE`   | Name of the device (see `ifconfig` or similar). Usually this something similar to `ppp0`. |
 
 ## How to build
 
 You must have Qt development libraries and
-[Extra CMake Modules](https://invent.kde.org/frameworks/extra-cmake-modules)
-installed.
+[Extra CMake Modules](https://invent.kde.org/frameworks/extra-cmake-modules) installed.
 
-### vcpkg
+### With vcpkg
 
 1. Have vcpkg configured. See [Set up vcpkg](https://learn.microsoft.com/en-gb/vcpkg/get_started/get-started?pivots=shell-bash#1---set-up-vcpkg).
 2. Clone the project.
 3. In the project directory, run `cmake --preset=default && cmake --build build`
 
-### Link against system dependencies
+### Without vcpkg (link against system libraries)
 
 ```shell
 git clone ...

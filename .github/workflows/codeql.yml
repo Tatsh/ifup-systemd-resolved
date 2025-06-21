@@ -1,7 +1,7 @@
 # For most projects, this workflow file will not need changing; you simply need
 # to commit it to your repository.
 #
-# You may wish to alter this file to override the set of languages analyzed,
+# You may wish to alter this file to override the set of languages analysed,
 # or to provide custom queries or build logic.
 #
 # ******** NOTE ********
@@ -72,7 +72,7 @@ jobs:
 
       # - run: |
       #   echo "Run, Build Application using script"
-      #   ./location_of_script_within_repo/buildscript.sh
+      #   ./location_of_script_within_repo/build-script.sh
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2

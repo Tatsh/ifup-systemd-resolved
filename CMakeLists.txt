@@ -12,7 +12,7 @@ if(BUILD_DOCS)
     COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
   install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/docs/html
-          DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/doc/winprefs-${version})
+          DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/doc/ifup-systemd-resolved-${version})
 endif()
 
 # Qt variables

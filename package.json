@@ -46,6 +46,19 @@
     "yarn-audit-fix": "^10.1.1"
   },
   "license": "MIT",
+  "markdownlint-cli2": {
+    "config": {
+      "MD033": {
+        "allowed_elements": ["kbd"]
+      },
+      "default": true,
+      "line-length": {
+        "code_blocks": false,
+        "line_length": 100,
+        "tables": false
+      }
+    }
+  },
   "name": "ifup-systemd-resolved",
   "packageManager": "yarn@4.9.1",
   "prettier": {
