@@ -1,11 +1,11 @@
 # ifup-systemd-resolved
 
 This tool is primarily for use with [openfortivpn](https://github.com/adrienverge/openfortivpn),
-[patched](https://github.com/adrienverge/openfortivpn/pull/615)
+[patched](https://github.com/adrienverge/openfortivpn/pull/1092)
 ([alternative](https://github.com/adrienverge/openfortivpn/pull/986/files))
 to allow for hook scripts. It uses D-Bus to set up DNS settings for the PPP interface. It is based
 on the script in
-[adrienverge/openfortivpn#615](https://github.com/adrienverge/openfortivpn/pull/615).
+[adrienverge/openfortivpn#1092](https://github.com/adrienverge/openfortivpn/pull/1092).
 
 ## Usage
 
