@@ -7,7 +7,7 @@ jobs:
       - name: Install dependencies (Yarn)
         run: |
           yarn
-          pipx install cmake-format --include-deps
+          pip install cmake-format pyyaml
       - name: Check formatting
         run: yarn check-formatting
       - name: Check spelling

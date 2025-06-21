@@ -62,6 +62,7 @@ portfile
 psqlrc
 pyright
 pythonrc
+pyyaml
 qcoreapplication
 qdbusconnection
 qdbusinterface
