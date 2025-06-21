@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Packages
 find_package(ECM NO_MODULE REQUIRED)
 find_package(
-  Qt5
+  Qt6
   COMPONENTS DBus Network
   REQUIRED)
 # Feature summary

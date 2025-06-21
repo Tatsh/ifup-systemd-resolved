@@ -29,4 +29,4 @@ endif()
 include_directories(. ${CMAKE_CURRENT_BINARY_DIR}/generated ${CMAKE_CURRENT_BINARY_DIR})
 add_executable(${CMAKE_PROJECT_NAME} ${IFUP_SRCS}
                                      ${CMAKE_CURRENT_BINARY_DIR}/generated/ifupdebug.cpp)
-target_link_libraries(${CMAKE_PROJECT_NAME} Qt5::DBus Qt5::Network)
+target_link_libraries(${CMAKE_PROJECT_NAME} Qt6::DBus Qt6::Network)
