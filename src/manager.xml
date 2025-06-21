@@ -8,7 +8,7 @@
       <arg direction="in" name="addresses" type="a(iay)" />
     </method>
     <method name="SetLinkDomains">
-      <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="LinkDomainsList" />
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="LinkDomainList" />
       <arg direction="in" name="ifindex" type="i" />
       <arg direction="in" name="domains" type="a(sb)" />
     </method>
