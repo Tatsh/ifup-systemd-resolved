@@ -92,6 +92,7 @@
   },
   "repository": "git@github.com:Tatsh/ifup-systemd-resolved.git",
   "scripts": {
+    "build": "cmake --preset=default -DBUILD_DOCS=ON && cmake --build build",
     "check-formatting": "clang-format -n src/*.cpp src/*.h && prettier -c . && markdownlint-cli2 '**/*.md' '#node_modules'",
     "check-spelling": "cspell --no-progress .",
     "format": "clang-format -i src/*.cpp src/*.h && yarn prettier -w .",

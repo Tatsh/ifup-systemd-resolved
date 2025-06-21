@@ -47,14 +47,6 @@ Environment variables must be set for this application to do anything.
 You must have Qt development libraries and
 [Extra CMake Modules](https://invent.kde.org/frameworks/extra-cmake-modules) installed.
 
-### With vcpkg
-
-1. Have vcpkg configured. See [Set up vcpkg](https://learn.microsoft.com/en-gb/vcpkg/get_started/get-started?pivots=shell-bash#1---set-up-vcpkg).
-2. Clone the project.
-3. In the project directory, run `cmake --preset=default && cmake --build build`
-
-### Without vcpkg (link against system libraries)
-
 ```shell
 git clone ...
 mkdir the-repo-dir/build
@@ -62,3 +54,9 @@ cd the-repo-dir/build
 cmake ..
 make
 ```
+
+## How to build with vcpkg
+
+1. Have vcpkg configured. See [Set up vcpkg](https://learn.microsoft.com/en-gb/vcpkg/get_started/get-started?pivots=shell-bash#1---set-up-vcpkg).
+2. Clone the project.
+3. In the project directory, run `cmake --preset=default && cmake --build build`.
