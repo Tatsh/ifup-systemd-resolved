@@ -8,7 +8,6 @@
   },
   "cSpell.enabled": true,
   "cmake.configureArgs": ["-DBUILD_DOCS=ON"],
-  "cmakeFormat.args": ["-c", ".cmake-format"],
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
