@@ -11,7 +11,7 @@
   ],
   "description": "Hook for openfortivpn to set up DNS with systemd-resolved.",
   "documentation": "https://tatsh.github.io/ifup-systemd-resolved/",
-  "homepage": "https://github.com/Tatsh/ifup-systemd-resolved",
+  "homepage": "https://github.com/Tatsh/ifup-systemd-resolved/",
   "license": "MIT",
   "maintainers": "Andrew Udvare <audvare@gmail.com>",
   "name": "ifup-systemd-resolved",
