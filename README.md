@@ -1,5 +1,21 @@
 # ifup-systemd-resolved
 
+[![Build](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/cmake.yml/badge.svg)](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/cmake.yml)
+[![Tests](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/tests.yml/badge.svg)](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/tests.yml)
+[![Coverage Status](https://coveralls.io/repos/github/Tatsh/ifup-systemd-resolved/badge.svg?branch=master)](https://coveralls.io/github/Tatsh/ifup-systemd-resolved?branch=master)
+[![Documentation](https://img.shields.io/badge/docs-deployed-blue)](https://tatsh.github.io/ifup-systemd-resolved/)
+[![QA](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/qa.yml/badge.svg)](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/qa.yml)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![CodeQL](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/codeql.yml/badge.svg)](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/codeql.yml)
+[![License](https://img.shields.io/github/license/Tatsh/ifup-systemd-resolved)](https://github.com/Tatsh/ifup-systemd-resolved/blob/master/LICENSE.txt)
+![GitHub tag (with filter)](https://img.shields.io/github/v/tag/Tatsh/ifup-systemd-resolved)
+![GitHub](https://img.shields.io/github/license/Tatsh/ifup-systemd-resolved)
+![GitHub commits since latest release (by SemVer including pre-releases)](https://img.shields.io/github/commits-since/Tatsh/ifup-systemd-resolved/v0.3.2/master)
+[![Stargazers](https://img.shields.io/github/stars/Tatsh/ifup-systemd-resolved?logo=github&style=flat)](https://github.com/Tatsh/ifup-systemd-resolved/stargazers)
+
+[![@Tatsh](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fpublic.api.bsky.app%2Fxrpc%2Fapp.bsky.actor.getProfile%2F%3Factor%3Ddid%3Aplc%3Auq42idtvuccnmtl57nsucz72%26query%3D%24.followersCount%26style%3Dsocial%26logo%3Dbluesky%26label%3DFollow%2520%40Tatsh&query=%24.followersCount&style=social&logo=bluesky&label=Follow%20%40Tatsh)](https://bsky.app/profile/Tatsh.bsky.social)
+[![Mastodon Follow](https://img.shields.io/mastodon/follow/109370961877277568?domain=hostux.social&style=social)](https://hostux.social/@Tatsh)
+
 This tool is primarily for use with [openfortivpn](https://github.com/adrienverge/openfortivpn),
 [patched](https://github.com/adrienverge/openfortivpn/pull/1092)
 ([alternative](https://github.com/adrienverge/openfortivpn/pull/986/files))
