@@ -1,0 +1,88 @@
+{
+  "author": "Andrew Udvare <audvare@gmail.com>",
+  "cspell": {
+    "cache": {
+      "useCache": true
+    },
+    "dictionaryDefinitions": [
+      {
+        "name": "main",
+        "path": ".vscode/dictionary.txt"
+      }
+    ],
+    "enableFileTypes": {
+      "*": true
+    },
+    "enableGlobDot": true,
+    "files": ["*"],
+    "ignorePaths": [
+      "*.1",
+      "*.har",
+      "*.lock",
+      ".git/**",
+      ".yarn/**/*.cjs",
+      ".vscode/extensions.json",
+      "man/**"
+    ],
+    "language": "en-GB",
+    "languageSettings": [
+      {
+        "dictionaries": ["main"],
+        "languageId": "*"
+      }
+    ],
+    "useGitignore": true
+  },
+  "description": "systemd-resolved tool for use with openfortivpn patched to allow hook scripts.",
+  "devDependencies": {
+    "@prettier/plugin-xml": "^3.4.1",
+    "cspell": "^9.0.1",
+    "markdownlint-cli2": "^0.18.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-ini": "^1.3.0",
+    "prettier-plugin-sort-json": "^4.1.1",
+    "prettier-plugin-toml": "^2.0.5",
+    "pyright": "^1.1.400",
+    "yarn-audit-fix": "^10.1.1"
+  },
+  "license": "MIT",
+  "name": "ifup-systemd-resolved",
+  "packageManager": "yarn@4.9.1",
+  "prettier": {
+    "endOfLine": "lf",
+    "iniSpaceAroundEquals": true,
+    "jsonRecursiveSort": true,
+    "overrides": [
+      {
+        "files": "*.csproj",
+        "options": {
+          "parser": "xml",
+          "xmlWhitespaceSensitivity": "ignore"
+        }
+      },
+      {
+        "files": ["package.json"],
+        "options": {
+          "parser": "json"
+        }
+      }
+    ],
+    "plugins": [
+      "@prettier/plugin-xml",
+      "prettier-plugin-ini",
+      "prettier-plugin-sort-json",
+      "prettier-plugin-toml"
+    ],
+    "printWidth": 100,
+    "singleQuote": true,
+    "xmlSortAttributesByKey": true
+  },
+  "repository": "git@github.com:Tatsh/ifup-systemd-resolved.git",
+  "scripts": {
+    "check-formatting": "clang-format -n src/*.cpp src/*.h && prettier -c . && markdownlint-cli2 '**/*.md' '#node_modules'",
+    "check-spelling": "cspell --no-progress .",
+    "format": "clang-format -i src/*.cpp src/*.h && yarn prettier -w .",
+    "qa": "yarn check-spelling && yarn check-formatting"
+  },
+  "version": "0.3.2"
+}

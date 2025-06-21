@@ -36,3 +36,5 @@ Thumbs.db
 /build/
 /install/
 /.cache/
+node_modules/
+/.yarn/install-state.gz

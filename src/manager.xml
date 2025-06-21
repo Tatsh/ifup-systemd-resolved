@@ -1,19 +1,20 @@
-<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "https://specifications.freedesktop.org/dbus/1.0/introspect.dtd">
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+  "https://specifications.freedesktop.org/dbus/1.0/introspect.dtd">
 <node>
   <interface name="org.freedesktop.resolve1.Manager">
     <method name="SetLinkDNS">
       <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="LinkDnsIpList" />
-      <arg type="i" name="ifindex" direction="in" />
-      <arg type="a(iay)" name="addresses" direction="in" />
+      <arg direction="in" name="ifindex" type="i" />
+      <arg direction="in" name="addresses" type="a(iay)" />
     </method>
     <method name="SetLinkDomains">
       <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="LinkDomainsList" />
-      <arg type="i" name="ifindex" direction="in" />
-      <arg type="a(sb)" name="domains" direction="in" />
+      <arg direction="in" name="ifindex" type="i" />
+      <arg direction="in" name="domains" type="a(sb)" />
     </method>
     <method name="SetLinkDNSSEC">
-      <arg type="i" name="ifindex" direction="in" />
-      <arg type="s" name="mode" direction="in" />
+      <arg direction="in" name="ifindex" type="i" />
+      <arg direction="in" name="mode" type="s" />
     </method>
   </interface>
 </node>
