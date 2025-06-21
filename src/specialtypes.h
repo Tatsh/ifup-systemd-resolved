@@ -1,9 +1,13 @@
+/**
+ * @file specialtypes.h
+ * @brief Metatypes for D-Bus communication.
+ */
 #pragma once
 #include <sys/socket.h>
 
 #include <QtDBus/QDBusMetaType>
 
-/** @struct LinkDnsIp */
+/** Used to call `org.freedesktop.resolve1` `SetLinkDNS`. */
 struct LinkDnsIp {
     /** Valid values: AF_INET, AF_INET6. */
     int family = AF_INET;
@@ -15,7 +19,7 @@ Q_DECLARE_METATYPE(LinkDnsIp)
 typedef QList<LinkDnsIp> LinkDnsIpList;
 Q_DECLARE_METATYPE(LinkDnsIpList)
 
-/** @struct LinkDomain */
+/** Used to call `org.freedesktop.resolve1` `SetLinkDomains`. */
 struct LinkDomain {
     /** Domain name. */
     QString domain;

@@ -1,3 +1,7 @@
+/**
+ * @file constants.h
+ * @brief Constants.
+ */
 #pragma once
 #include <QtCore/QStringLiteral>
 

@@ -7,6 +7,7 @@
     "editor.tabSize": 4
   },
   "cSpell.enabled": true,
+  "cmake.configureArgs": ["-DBUILD_DOCS=ON"],
   "cmakeFormat.args": ["-c", ".cmake-format"],
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,

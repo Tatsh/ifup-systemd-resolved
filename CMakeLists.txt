@@ -1,5 +1,20 @@
 cmake_minimum_required(VERSION 3.31)
 project(ifup-systemd-resolved VERSION 0.0.1)
+
+option(BUILD_DOCS "Build documentation." OFF)
+
+if(BUILD_DOCS)
+  find_package(Doxygen REQUIRED)
+  set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in ${DOXYGEN_OUT} @ONLY)
+  add_custom_target(
+    doc ALL
+    COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+  install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/docs/html
+          DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/doc/winprefs-${version})
+endif()
+
 # Qt variables
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
