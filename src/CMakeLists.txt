@@ -1,4 +1,5 @@
-set(IFUP_SRCS constants.h main.cpp specialtypes.cpp specialtypes.h up.cpp up.h)
+set(IFUP_SRCS main.cpp specialtypes.cpp specialtypes.h up.cpp up.h)
+set(IFUP_TESTS_SRC specialtypes.cpp specialtypes.h test.cpp up.cpp up.h)
 set(RESOLVE1_MANAGER_XML manager.xml)
 set_source_files_properties(${RESOLVE1_MANAGER_XML} PROPERTIES INCLUDE specialtypes.h
                                                                CLASSNAME Resolve1Manager)
@@ -23,10 +24,35 @@ add_definitions(
   -DVERSION=\"${CMAKE_PROJECT_VERSION}\")
 if(CMAKE_BUILD_TYPE STREQUAL Debug)
   if(CMAKE_CXX_COMPILER_ID STREQUAL GNU OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
-    add_compile_options(-ggdb -Wall -Werror -Wextra -Wno-unknown-pragmas)
+    target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -ggdb -Wall -Werror -Wextra
+                                                         -Wno-unknown-pragmas)
   endif()
 endif()
 include_directories(. ${CMAKE_CURRENT_BINARY_DIR}/generated ${CMAKE_CURRENT_BINARY_DIR})
 add_executable(${CMAKE_PROJECT_NAME} ${IFUP_SRCS}
                                      ${CMAKE_CURRENT_BINARY_DIR}/generated/ifupdebug.cpp)
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE Qt6::DBus Qt6::Network)
+
+if(BUILD_TESTS)
+  enable_testing()
+  qt_add_dbus_interface(IFUP_TESTS_SRC ${RESOLVE1_MANAGER_XML} resolve1_interface)
+  ecm_qt_declare_logging_category(
+    IFUP_TESTS_SRC
+    HEADER
+    generated/ifupdebug.h
+    IDENTIFIER
+    "LOG_IFUP_SYSTEMD_RESOLVED"
+    CATEGORY_NAME
+    "sh.tat.${CMAKE_PROJECT_NAME}")
+  include(FetchContent)
+  FetchContent_Declare(googletest
+                       URL https://github.com/google/googletest/archive/refs/tags/v1.17.0.zip)
+  FetchContent_MakeAvailable(googletest)
+  add_executable(${CMAKE_PROJECT_NAME}-tests ${IFUP_TESTS_SRC})
+  target_compile_options(${CMAKE_PROJECT_NAME}-tests PRIVATE -ggdb -Wall -Werror -Wextra
+                                                             -Wno-unknown-pragmas --coverage)
+  target_link_libraries(${CMAKE_PROJECT_NAME}-tests PRIVATE Qt6::DBus Qt6::Network
+                                                            GTest::gtest_main GTest::gmock gcov)
+  include(GoogleTest)
+  gtest_discover_tests(${CMAKE_PROJECT_NAME}-tests)
+endif()

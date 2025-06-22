@@ -15,6 +15,7 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 option(BUILD_DOCS "Build documentation." OFF)
+option(BUILD_TESTS "Build tests." OFF)
 
 if(BUILD_DOCS)
   find_package(Doxygen REQUIRED)

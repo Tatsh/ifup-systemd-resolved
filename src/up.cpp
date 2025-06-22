@@ -3,16 +3,13 @@
 #include <QtDBus/QDBusInterface>
 #include <QtNetwork/QNetworkInterface>
 
-#include "constants.h"
-#include "ifupdebug.h"
-#include "resolve1_interface.h"
 #include "up.h"
-
-namespace EnvVars = Strings::EnvironmentVariables;
 
 LinkDnsIpList generateAddresses() {
     LinkDnsIpList dnsArgs;
-    for (const auto &ipAddress : QStringList{EnvVars::dns1, EnvVars::dns2}) {
+    for (const auto &ipAddress : QStringList{
+             QString(qEnvironmentVariable(Strings::EnvironmentVariableNames::dns1)).trimmed(),
+             QString(qEnvironmentVariable(Strings::EnvironmentVariableNames::dns2)).trimmed()}) {
         if (!ipAddress.isEmpty()) {
             const QHostAddress addr(ipAddress);
             auto isIpv4 = false;
@@ -37,72 +34,11 @@ LinkDnsIpList generateAddresses() {
 
 LinkDomainList generateDomains() {
     LinkDomainList domainsArg;
-    for (const auto &domain : EnvVars::dnsSuffix.split(Strings::singleSpace, Qt::SkipEmptyParts)) {
+    for (const auto &domain :
+         QString(qEnvironmentVariable(Strings::EnvironmentVariableNames::dnsSuffix))
+             .trimmed()
+             .split(Strings::singleSpace, Qt::SkipEmptyParts)) {
         domainsArg << LinkDomain{domain, false};
     }
     return domainsArg;
-}
-
-bool doSetLinkDns(Resolve1Manager &iface, const int devIndex) {
-    auto dnsArgs = generateAddresses();
-    if (dnsArgs.length()) {
-        auto res = iface.SetLinkDNS(devIndex, dnsArgs);
-        res.waitForFinished();
-        if (res.isError()) {
-            qCCritical(LOG_IFUP_SYSTEMD_RESOLVED) << "SetLinkDNS failed.";
-            return false;
-        }
-    }
-    return true;
-}
-
-bool doSetLinkDomains(Resolve1Manager &iface, const int devIndex) {
-    auto domainsArg = generateDomains();
-    if (domainsArg.length()) {
-        auto res = iface.SetLinkDomains(devIndex, domainsArg);
-        res.waitForFinished();
-        if (res.isError()) {
-            qCCritical(LOG_IFUP_SYSTEMD_RESOLVED) << "SetLinkDomains failed.";
-            return false;
-        }
-    }
-    return true;
-}
-
-bool doSetLinkDnssec(Resolve1Manager &iface, const int devIndex) {
-    if (EnvVars::dnsSec.length()) {
-        auto res = iface.SetLinkDNSSEC(
-            devIndex,
-            EnvVars::dnsSec == Strings::dnsSecDefaultValue ? Strings::empty : EnvVars::dnsSec);
-        res.waitForFinished();
-        if (res.isError()) {
-            qCCritical(LOG_IFUP_SYSTEMD_RESOLVED) << "SetLinkDNSSEC failed.";
-            return false;
-        }
-    }
-    return true;
-}
-
-bool up() {
-    Resolve1Manager iface(Strings::DBus::Services::resolve1,
-                          Strings::DBus::Paths::resolve1,
-                          QDBusConnection::systemBus());
-    if (EnvVars::netDevice.isEmpty()) {
-        qCCritical(LOG_IFUP_SYSTEMD_RESOLVED) << "Empty network device name.";
-        return false;
-    }
-    const auto devIndex = QNetworkInterface::interfaceFromName(EnvVars::netDevice).index();
-    if (devIndex == 0) {
-        qCWarning(LOG_IFUP_SYSTEMD_RESOLVED) << "Unusual to have network device index 0.";
-    }
-    if (iface.isValid()) {
-        doSetLinkDns(iface, devIndex);
-        doSetLinkDomains(iface, devIndex);
-        doSetLinkDnssec(iface, devIndex);
-    } else {
-        qCCritical(LOG_IFUP_SYSTEMD_RESOLVED) << iface.lastError();
-        qCCritical(LOG_IFUP_SYSTEMD_RESOLVED) << "Invalid interface!";
-        return false;
-    }
-    return true;
 }

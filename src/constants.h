@@ -3,7 +3,7 @@
  * @brief Constants.
  */
 #pragma once
-#include <QtCore/QStringLiteral>
+#include <QtCore/QString>
 
 /** Common strings. */
 namespace Strings {
@@ -28,17 +28,17 @@ namespace Strings {
             const QString resolve1 = QStringLiteral("/org/freedesktop/resolve1");
         } // namespace Paths
     } // namespace DBus
-    /** Environment variables. */
-    namespace EnvironmentVariables {
-        /** Environment variable for DNSSEC value. */
-        const QString dnsSec = QString(qEnvironmentVariable("DNSSEC")).trimmed();
-        /** Environment variable for first DNS entry. */
-        const QString dns1 = QString(qEnvironmentVariable("DNS1")).trimmed();
-        /** Environment variable for second DNS entry. */
-        const QString dns2 = QString(qEnvironmentVariable("DNS2")).trimmed();
-        /** Environment variable for space-separated list of DNS suffixes. */
-        const QString dnsSuffix = QString(qEnvironmentVariable("DNS_SUFFIX")).trimmed();
-        /** Environment variable for network device name. */
-        const QString netDevice = QString(qEnvironmentVariable("PPP_IFACE")).trimmed();
-    } // namespace EnvironmentVariables
+    /** Environment variable names. */
+    namespace EnvironmentVariableNames {
+        /** Environment variable name for DNSSEC. */
+        inline const char *dnsSec = "DNSSEC";
+        /** Environment variable name for first DNS entry. */
+        inline const char *dns1 = "DNS1";
+        /** Environment variable name for second DNS entry. */
+        inline const char *dns2 = "DNS2";
+        /** Environment variable name for DNS suffixes. */
+        inline const char *dnsSuffix = "DNS_SUFFIX";
+        /** Environment variable name for network device name. */
+        inline const char *netDevice = "PPP_IFACE";
+    } // namespace EnvironmentVariableNames
 } // namespace Strings
