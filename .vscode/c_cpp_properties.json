@@ -1,9 +1,9 @@
 {
   "configurations": [
     {
-      "cStandard": "gnu17",
+      "cStandard": "gnu23",
       "compilerPath": "/usr/bin/gcc",
-      "cppStandard": "gnu++17",
+      "cppStandard": "gnu++23",
       "defines": [
         "QT_NO_CAST_FROM_ASCII",
         "QT_NO_CAST_FROM_BYTEARRAY",
@@ -13,15 +13,14 @@
         "QT_STRICT_ITERATORS",
         "QT_USE_FAST_OPERATOR_PLUS",
         "QT_USE_QSTRINGBUILDER",
-        "VERSION=unknown"
+        "VERSION=\"unknown\""
       ],
       "includePath": [
         "${workspaceFolder}/src/**",
         "${workspaceFolder}/build/generated",
         "/usr/include/KF6/KAuthCore",
         "/usr/include/KF6/KCoreAddons",
-        "/usr/include/qt6",
-        "/usr/include/qt6/QtCore"
+        "/usr/include/qt6"
       ],
       "name": "Linux"
     }

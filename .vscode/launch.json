@@ -3,7 +3,14 @@
     {
       "cwd": "${workspaceFolder}/build",
       "name": "Debug",
-      "program": "${workspaceFolder}/build/ifup-systemd-resolved",
+      "program": "${workspaceFolder}/build/src/ifup-systemd-resolved",
+      "request": "launch",
+      "type": "cppdbg"
+    },
+    {
+      "cwd": "${workspaceFolder}/build",
+      "name": "Debug tests",
+      "program": "${workspaceFolder}/build/src/ifup-systemd-resolved-tests",
       "request": "launch",
       "type": "cppdbg"
     }

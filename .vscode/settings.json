@@ -6,14 +6,22 @@
   "[cpp]": {
     "editor.tabSize": 4
   },
+  "[shellscript]": {
+    "editor.tabSize": 4
+  },
   "cSpell.enabled": true,
-  "cmake.configureArgs": ["-DBUILD_DOCS=ON"],
+  "cmake.configureArgs": ["-DBUILD_DOCS=ON", "-DBUILD_TESTS=ON"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "editor.insertSpaces": true,
   "editor.rulers": [100],
   "editor.tabSize": 2,
+  "editor.wordWrapColumn": 100,
   "files.associations": {
     "**/bash-completion/completions/*": "shellscript",
     "*.inc": "cpp",
@@ -69,6 +77,7 @@
     "functional": "cpp",
     "future": "cpp",
     "hash_map": "cpp",
+    "hash_set": "cpp",
     "initializer_list": "cpp",
     "iomanip": "cpp",
     "iosfwd": "cpp",
@@ -95,12 +104,16 @@
     "qdbusmetatype": "cpp",
     "qloggingcategory": "cpp",
     "qnetworkinterface": "cpp",
+    "qstring": "cpp",
     "qstringdata": "cpp",
+    "qstringlist": "cpp",
     "random": "cpp",
+    "ranges": "cpp",
     "ratio": "cpp",
     "regex": "cpp",
     "semaphore": "cpp",
     "set": "cpp",
+    "slist": "cpp",
     "source_location": "cpp",
     "span": "cpp",
     "sstream": "cpp",
@@ -126,5 +139,6 @@
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
-  "files.trimTrailingWhitespace": true
+  "files.trimTrailingWhitespace": true,
+  "yaml.format.printWidth": 100
 }

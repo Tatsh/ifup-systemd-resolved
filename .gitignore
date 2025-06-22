@@ -34,3 +34,4 @@ node_modules/
 /.yarn/install-state.gz
 /CMakeUserPresets.json
 .cspellcache
+*.info
