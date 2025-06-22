@@ -10,8 +10,8 @@
 
 namespace EnvVars = Strings::EnvironmentVariables;
 
-std::unique_ptr<LinkDnsIpList> generateAddresses() {
-    auto dnsArgs = std::make_unique<LinkDnsIpList>();
+LinkDnsIpList generateAddresses() {
+    LinkDnsIpList dnsArgs;
     for (const auto &ipAddress : QStringList{EnvVars::dns1, EnvVars::dns2}) {
         if (!ipAddress.isEmpty()) {
             const QHostAddress addr(ipAddress);
@@ -29,24 +29,24 @@ std::unique_ptr<LinkDnsIpList> generateAddresses() {
                     add.ipAddress << ipv6[i];
                 }
             }
-            *dnsArgs.get() << add;
+            dnsArgs << add;
         }
     }
     return dnsArgs;
 }
 
-std::unique_ptr<LinkDomainList> generateDomains() {
-    auto domainsArg = std::make_unique<LinkDomainList>();
+LinkDomainList generateDomains() {
+    LinkDomainList domainsArg;
     for (const auto &domain : EnvVars::dnsSuffix.split(Strings::singleSpace, Qt::SkipEmptyParts)) {
-        *domainsArg.get() << LinkDomain{domain, false};
+        domainsArg << LinkDomain{domain, false};
     }
     return domainsArg;
 }
 
 bool doSetLinkDns(Resolve1Manager &iface, const int devIndex) {
     auto dnsArgs = generateAddresses();
-    if (dnsArgs->length()) {
-        auto res = iface.SetLinkDNS(devIndex, *dnsArgs.get());
+    if (dnsArgs.length()) {
+        auto res = iface.SetLinkDNS(devIndex, dnsArgs);
         res.waitForFinished();
         if (res.isError()) {
             qCCritical(LOG_IFUP_SYSTEMD_RESOLVED) << "SetLinkDNS failed.";
@@ -58,8 +58,8 @@ bool doSetLinkDns(Resolve1Manager &iface, const int devIndex) {
 
 bool doSetLinkDomains(Resolve1Manager &iface, const int devIndex) {
     auto domainsArg = generateDomains();
-    if (domainsArg->length()) {
-        auto res = iface.SetLinkDomains(devIndex, *domainsArg.get());
+    if (domainsArg.length()) {
+        auto res = iface.SetLinkDomains(devIndex, domainsArg);
         res.waitForFinished();
         if (res.isError()) {
             qCCritical(LOG_IFUP_SYSTEMD_RESOLVED) << "SetLinkDomains failed.";

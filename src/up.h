@@ -13,7 +13,7 @@ class Resolve1Manager;
  *
  * @return A unique pointer to a LinkDnsIpList containing the addresses.
  */
-std::unique_ptr<LinkDnsIpList> generateAddresses();
+LinkDnsIpList generateAddresses();
 /**
  * Generate domains for the call to `org.freedesktop.resolve1` `SetLinkDomains`.
  * Requires the environment variable `DNS_SUFFIX` to be set to a space-separated list of domain
@@ -21,7 +21,7 @@ std::unique_ptr<LinkDnsIpList> generateAddresses();
  *
  * @return A unique pointer to a LinkDomainList containing the domains.
  */
-std::unique_ptr<LinkDomainList> generateDomains();
+LinkDomainList generateDomains();
 /**
  * Call `SetLinkDNS` on the `Resolve1Manager` interface passed in.
  *
