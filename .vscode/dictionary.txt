@@ -14,9 +14,7 @@ cfenv
 charconv
 chrono
 cinttypes
-classname
 clocale
-cmake
 cmath
 codecvt
 codeowners
@@ -37,10 +35,8 @@ dbuild
 dbus
 dcmake
 deque
-dnssec
 doxyfile
 dversion
-endregion
 esbenp
 executejob
 gcov
@@ -61,13 +57,10 @@ iosfwd
 iwyu
 kauthaction
 kauthexecutejob
-libqt
 mainpage
 mathjax
 mdfile
-metatype
 openfortivpn
-parens
 pipx
 portfile
 psqlrc
@@ -96,7 +89,6 @@ sstream
 stdexcept
 stdfloat
 strequal
-struct
 tatsh
 testlist
 todolist
