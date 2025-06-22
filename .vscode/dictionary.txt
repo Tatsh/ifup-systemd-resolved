@@ -1,6 +1,7 @@
 actionreply
 adrienverge
 autobuild
+autoinstall
 automoc
 autorcc
 autosort
