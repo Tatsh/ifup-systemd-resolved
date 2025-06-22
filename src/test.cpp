@@ -6,8 +6,6 @@
 
 using ::testing::_;
 using ::testing::Return;
-using ::testing::ReturnPointee;
-using ::testing::ReturnRef;
 
 TEST(GenerateAddressesTests, EmptyVars) {
     auto x = generateAddresses();

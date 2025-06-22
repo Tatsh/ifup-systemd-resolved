@@ -22,15 +22,15 @@ add_definitions(
   -DQT_USE_FAST_OPERATOR_PLUS
   -DQT_USE_QSTRINGBUILDER
   -DVERSION=\"${CMAKE_PROJECT_VERSION}\")
+include_directories(. ${CMAKE_CURRENT_BINARY_DIR}/generated ${CMAKE_CURRENT_BINARY_DIR})
+add_executable(${CMAKE_PROJECT_NAME} ${IFUP_SRCS}
+                                     ${CMAKE_CURRENT_BINARY_DIR}/generated/ifupdebug.cpp)
 if(CMAKE_BUILD_TYPE STREQUAL Debug)
   if(CMAKE_CXX_COMPILER_ID STREQUAL GNU OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
     target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -ggdb -Wall -Werror -Wextra
                                                          -Wno-unknown-pragmas)
   endif()
 endif()
-include_directories(. ${CMAKE_CURRENT_BINARY_DIR}/generated ${CMAKE_CURRENT_BINARY_DIR})
-add_executable(${CMAKE_PROJECT_NAME} ${IFUP_SRCS}
-                                     ${CMAKE_CURRENT_BINARY_DIR}/generated/ifupdebug.cpp)
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE Qt6::DBus Qt6::Network)
 
 if(BUILD_TESTS)
@@ -51,6 +51,9 @@ if(BUILD_TESTS)
   add_executable(${CMAKE_PROJECT_NAME}-tests ${IFUP_TESTS_SRC})
   target_compile_options(${CMAKE_PROJECT_NAME}-tests PRIVATE -ggdb -Wall -Werror -Wextra
                                                              -Wno-unknown-pragmas --coverage)
+  if(CMAKE_COMPILER_IS_GNUCXX)
+    target_compile_options(${CMAKE_PROJECT_NAME}-tests PRIVATE --coverage)
+  endif()
   target_link_libraries(${CMAKE_PROJECT_NAME}-tests PRIVATE Qt6::DBus Qt6::Network
                                                             GTest::gtest_main GTest::gmock gcov)
   include(GoogleTest)

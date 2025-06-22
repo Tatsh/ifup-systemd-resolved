@@ -23,7 +23,7 @@ repos:
       - id: mixed-line-ending
       - id: trailing-whitespace
   - repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v20.1.0
+    rev: v20.1.6
     hooks:
       - id: clang-format
         types_or: [c]
@@ -33,10 +33,6 @@ repos:
       - id: cmake-format
         args: [--check, -c, .cmake-format]
       # - id: cmake-lint
-  - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v8.19.0
-    hooks:
-      - id: cspell
   - hooks:
       - entry: 'yarn install --check-cache --immutable'
         files: "^package\\.json$"

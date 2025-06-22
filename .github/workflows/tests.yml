@@ -1,6 +1,6 @@
 ---
 jobs:
-  build:
+  tests:
     permissions:
       contents: write
     runs-on: ${{ matrix.os }}
@@ -10,23 +10,38 @@ jobs:
           fetch-depth: 0
       - name: Install dependencies
         run: |
+          pipx install cpp-coveralls
           sudo apt-get update
-          sudo apt-get install -y qt6-base-dev extra-cmake-modules
+          sudo apt-get install -y qt6-base-dev extra-cmake-modules lcov
       - name: Configure
         run: >-
           cmake -DCMAKE_BUILD_TYPE=${{matrix.build-type}} -B ${{github.workspace}}/build
           --install-prefix ${{github.workspace}}/build/prefix
           -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+          -DBUILD_TESTS=ON
       - name: Build
         run: cmake --build ${{github.workspace}}/build --verbose --config ${{matrix.build-type}}
       - name: Install
         run: cmake --install ${{github.workspace}}/build --config ${{matrix.build-type}} --verbose
+      - name: Run tests
+        run: ctest --test-dir ${{github.workspace}}/build
+      - name: Generate coverage information
+        run: >-
+          geninfo "--include=src/*"
+          --exclude=test.cpp
+          '--exclude=google*/*'
+          '--exclude=build/*'
+          -b ${{github.workspace}}
+          -o coverage1.info
+          ${{github.workspace}}/build/src/CMakeFiles/ifup-systemd-resolved-tests.dir
+      - name: Coveralls
+        run: coveralls -i src
     strategy:
       fail-fast: false
       matrix:
         build-type: [Debug, Release]
         os: [ubuntu-24.04, ubuntu-22.04]
-name: Build
+name: Tests
 'on':
   pull_request:
     branches:
