@@ -9,7 +9,7 @@
 
 /** Used to call `org.freedesktop.resolve1` `SetLinkDNS`. */
 struct LinkDnsIp {
-    /** Valid values: AF_INET, AF_INET6. */
+    /** Valid values: `AF_INET`, `AF_INET6`. */
     int family = AF_INET;
     /** IP address. */
     QList<uchar> ipAddress;
