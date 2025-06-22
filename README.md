@@ -1,6 +1,5 @@
 # ifup-systemd-resolved
 
-[![Build](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/cmake.yml/badge.svg)](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/cmake.yml)
 [![Tests](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/tests.yml/badge.svg)](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/tests.yml)
 [![Coverage Status](https://coveralls.io/repos/github/Tatsh/ifup-systemd-resolved/badge.svg?branch=master)](https://coveralls.io/github/Tatsh/ifup-systemd-resolved?branch=master)
 [![Documentation](https://img.shields.io/badge/docs-deployed-blue)](https://tatsh.github.io/ifup-systemd-resolved/)
