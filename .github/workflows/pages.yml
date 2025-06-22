@@ -3,7 +3,7 @@ concurrency:
   cancel-in-progress: false
   group: pages
 jobs:
-  deploy:
+  pages:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -32,7 +32,7 @@ jobs:
       - id: deployment
         name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-name: Deploy static content to Pages
+name: GitHub Pages
 'on':
   push:
     branches: [master]

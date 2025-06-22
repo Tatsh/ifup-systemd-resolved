@@ -3,7 +3,7 @@ env:
   CODEQL_EXTRACTOR_CPP_AUTOINSTALL_DEPENDENCIES: 'false'
 jobs:
   analyze:
-    name: Analyze
+    name: analyse
     permissions:
       actions: read
       contents: read
