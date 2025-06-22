@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y qt6-base-dev extra-cmake-modules doxygen
+          sudo apt-get install -y qt6-base-dev extra-cmake-modules doxygen graphviz
       - name: Configure
         run: >-
           cmake -DCMAKE_BUILD_TYPE=Release -B ${{github.workspace}}/build
