@@ -1,0 +1,36 @@
+---
+jobs:
+  build:
+    permissions:
+      contents: write
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qt6-base-dev extra-cmake-modules
+      - name: Configure
+        run: >-
+          cmake -DCMAKE_BUILD_TYPE=${{matrix.build-type}} -B ${{github.workspace}}/build
+          --install-prefix ${{github.workspace}}/build/prefix
+          -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+      - name: Build
+        run: cmake --build ${{github.workspace}}/build --verbose --config ${{matrix.build-type}}
+      - name: Install
+        run: cmake --install ${{github.workspace}}/build --config ${{matrix.build-type}} --verbose
+    strategy:
+      fail-fast: false
+      matrix:
+        build-type: [Debug, Release]
+        os: [ubuntu-24.04, ubuntu-22.04]
+name: Build
+'on':
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master

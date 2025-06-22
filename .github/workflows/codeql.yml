@@ -42,7 +42,7 @@ jobs:
       - name: Install dependencies
         uses: ConorMacBride/install-package@v1.1.0
         with:
-          apt: qtbase6-dev libqt5dbus6 libqt5network6 extra-cmake-modules
+          apt: qtbase6-dev libqt6dbus6 libqt5network6 extra-cmake-modules
 
       - name: Checkout repository
         uses: actions/checkout@v3
