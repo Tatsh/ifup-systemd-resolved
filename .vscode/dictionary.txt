@@ -33,6 +33,7 @@ cwctype
 datarootdir
 dbuild
 dbus
+dcmake
 deque
 dnssec
 doxyfile
@@ -41,11 +42,13 @@ endregion
 executejob
 ggdb
 gmock
+graphviz
 gtest
 iface
 ifindex
 ifup
 ifupdebug
+interprocedural
 iomanip
 iosfwd
 iwyu
