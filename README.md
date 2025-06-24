@@ -41,6 +41,8 @@ Environment variables must be set for this application to do anything.
 | `DNSSEC`      | If non-empty, it should be `default`, `yes`, `no`, or `allow-downgrade`.                  |
 | `PPP_IFACE`   | Name of the device (see `ifconfig` or similar). Usually this something similar to `ppp0`. |
 
+These are usually set by openfortivpn calling the script.
+
 ## How to build
 
 You must have Qt development libraries and
