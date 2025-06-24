@@ -2,7 +2,7 @@
 
 [![Tests](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/tests.yml/badge.svg)](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/tests.yml)
 [![Coverage Status](https://coveralls.io/repos/github/Tatsh/ifup-systemd-resolved/badge.svg?branch=master)](https://coveralls.io/github/Tatsh/ifup-systemd-resolved?branch=master)
-[![Documentation](https://img.shields.io/badge/docs-deployed-blue)](https://tatsh.github.io/ifup-systemd-resolved/)
+[![GitHub Pages](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/pages.yml/badge.svg)](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/pages.yml)
 [![QA](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/qa.yml/badge.svg)](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/qa.yml)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![CodeQL](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/codeql.yml/badge.svg)](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/codeql.yml)
