@@ -1,0 +1,71 @@
+.TH "IFUP-SYSTEMD-RESOLVED" "1" "Jun 23, 2025" "0.0.0" "ifup-systemd-resolved"
+.SH ifup\-systemd\-resolved
+.PP
+This tool is primarily for use with \c
+.UR https://github.com/adrienverge/openfortivpn
+openfortivpn
+.UE \c
+, \c
+.UR https://github.com/adrienverge/openfortivpn/pull/1092
+patched
+.UE \c
+\ (\c
+.UR https://github.com/adrienverge/openfortivpn/pull/986/files
+alternative
+.UE \c
+) to allow for hook scripts.
+It uses D\-Bus to set up DNS settings for the PPP interface.
+It is based on the script in \c
+.UR https://github.com/adrienverge/openfortivpn/pull/1092
+adrienverge/openfortivpn#1092
+.UE \c
+\&.
+.SS Usage
+In your configuration file for your patched copy of openfortivpn:
+.IP
+.EX
+ifup\-script = /path/to/ifup\-systemd\-resolved
+.EE
+.SS General usage
+Environment variables must be set for this application to do anything.
+.PP
+.TS
+tab(@);
+lw(8.9n) lw(61.1n).
+T{
+Name
+T}@T{
+Description
+T}
+_
+T{
+\f[CR]DNS_SERVERS\f[R]
+T}@T{
+DNS server IPs and names.
+Both IPv4 and IPv6 are supported.
+T}
+T{
+\f[CR]DNS_SUFFIX\f[R]
+T}@T{
+Search domains.
+T}
+T{
+\f[CR]DNSSEC\f[R]
+T}@T{
+If non\-empty, it should be \f[CR]default\f[R], \f[CR]yes\f[R],
+\f[CR]no\f[R], or \f[CR]allow\-downgrade\f[R].
+T}
+T{
+\f[CR]PPP_IFACE\f[R]
+T}@T{
+Name of the device (see \f[CR]ifconfig\f[R] or similar).
+Usually this something similar to \f[CR]ppp0\f[R].
+T}
+.TE
+.PP
+These are usually set by openfortivpn calling the script.
+.UNINDENT
+.SH AUTHOR
+Andrew Udvare <audvare@gmail.com>
+.SH COPYRIGHT
+2025
