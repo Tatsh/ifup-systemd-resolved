@@ -31,5 +31,5 @@ Q_DECLARE_METATYPE(LinkDomain)
 typedef QList<LinkDomain> LinkDomainList;
 Q_DECLARE_METATYPE(LinkDomainList)
 
-/** Register custom types with DBus. */
+/** Register custom types with DBus. This function must be called before using the Up class. */
 void registerDBusTypes();
