@@ -1,5 +1,6 @@
 #include "specialtypes.h"
 
+// LCOV_EXCL_START
 QDBusArgument &operator<<(QDBusArgument &argument, const LinkDnsIp &ld) {
     argument.beginStructure();
     argument << ld.family << ld.ipAddress;
@@ -27,7 +28,7 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, LinkDomain &ld) {
     argument.endStructure();
     return argument;
 }
-
+// LCOV_EXCL_STOP
 void registerDBusTypes() {
     qDBusRegisterMetaType<LinkDnsIp>();
     qDBusRegisterMetaType<LinkDnsIpList>();

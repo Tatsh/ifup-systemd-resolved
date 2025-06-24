@@ -3,6 +3,7 @@
 #include <QtDBus/QDBusInterface>
 #include <QtNetwork/QNetworkInterface>
 
+#include "resolve1_interface.h"
 #include "up.h"
 
 int main(int argc, char *argv[]) {
@@ -14,5 +15,7 @@ int main(int argc, char *argv[]) {
     if (!connection.isConnected()) {
         qFatal("Failed to connect to system bus.");
     }
-    return Up(connection).up() ? EXIT_SUCCESS : EXIT_FAILURE;
+    Resolve1Manager dbus_iface(
+        Strings::DBus::Services::resolve1, Strings::DBus::Paths::resolve1, connection);
+    return Up(dbus_iface).up() ? EXIT_SUCCESS : EXIT_FAILURE;
 }

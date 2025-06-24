@@ -57,6 +57,7 @@ iosfwd
 iwyu
 kauthaction
 kauthexecutejob
+libifup
 mainpage
 mathjax
 mdfile
