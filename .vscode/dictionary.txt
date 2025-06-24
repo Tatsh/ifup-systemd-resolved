@@ -6,6 +6,7 @@ automoc
 autorcc
 autosort
 autouic
+bsky
 buglist
 buildsystems
 bytearray
