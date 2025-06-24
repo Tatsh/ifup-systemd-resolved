@@ -40,18 +40,8 @@ jobs:
           -b ${{github.workspace}}
           -o coverage1.info
           ${{github.workspace}}/build/src/CMakeFiles/ifup-systemd-resolved-tests.dir
-      - if: ${{ matrix.os == 'ubuntu-22.04' }}
-        name: Generate coverage information
-        run: >-
-          geninfo
-          '--include=src/*'
-          '--exclude=google*/*'
-          '--exclude=build/*'
-          --exclude=src/test.cpp
-          -b ${{github.workspace}}
-          -o coverage1.info
-          ${{github.workspace}}/build/src/CMakeFiles/ifup-systemd-resolved-tests.dir
-      - name: Coveralls
+      - if: ${{ matrix.os == 'ubuntu-24.04' }}
+        name: Coveralls
         run: coveralls -i src -e src/specialtypes.cpp -e src/test.cpp '--exclude-lines-pattern=^\}$'
     strategy:
       fail-fast: false
