@@ -1,6 +1,7 @@
 *.1
 *.cpp
 *.h
+*.in
 *.j2
 *.lock
 *.log
