@@ -62,9 +62,12 @@ public:
                 << "Invalid interface!" << dbus_iface_.lastError();
             return false;
         }
-        qCCritical(LOG_IFUP_SYSTEMD_RESOLVED)
-            << "At least one D-Bus call failed. Expected 3, got" << res << ".";
-        return res == 3;
+        if (res != 3) {
+            qCCritical(LOG_IFUP_SYSTEMD_RESOLVED)
+                << "At least one D-Bus call failed. Expected 3, got" << res << ".";
+            return false;
+        }
+        return true;
     }
     /**
      * Call `SetLinkDNS` on the `Resolve1Manager` interface passed in.
