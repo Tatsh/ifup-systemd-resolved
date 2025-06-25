@@ -9,7 +9,7 @@
 [![License](https://img.shields.io/github/license/Tatsh/ifup-systemd-resolved)](https://github.com/Tatsh/ifup-systemd-resolved/blob/master/LICENSE.txt)
 ![GitHub tag (with filter)](https://img.shields.io/github/v/tag/Tatsh/ifup-systemd-resolved)
 ![GitHub](https://img.shields.io/github/license/Tatsh/ifup-systemd-resolved)
-![GitHub commits since latest release (by SemVer including pre-releases)](https://img.shields.io/github/commits-since/Tatsh/ifup-systemd-resolved/v0.0.1/master)
+![GitHub commits since latest release (by SemVer including pre-releases)](https://img.shields.io/github/commits-since/Tatsh/ifup-systemd-resolved/v0.0.2/master)
 [![Stargazers](https://img.shields.io/github/stars/Tatsh/ifup-systemd-resolved?logo=github&style=flat)](https://github.com/Tatsh/ifup-systemd-resolved/stargazers)
 
 [![@Tatsh](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fpublic.api.bsky.app%2Fxrpc%2Fapp.bsky.actor.getProfile%2F%3Factor%3Ddid%3Aplc%3Auq42idtvuccnmtl57nsucz72%26query%3D%24.followersCount%26style%3Dsocial%26logo%3Dbluesky%26label%3DFollow%2520%40Tatsh&query=%24.followersCount&style=social&logo=bluesky&label=Follow%20%40Tatsh)](https://bsky.app/profile/Tatsh.bsky.social)

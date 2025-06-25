@@ -16,5 +16,5 @@
   "maintainers": "Andrew Udvare <audvare@gmail.com>",
   "name": "ifup-systemd-resolved",
   "supports": "linux",
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
