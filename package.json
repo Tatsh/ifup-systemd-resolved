@@ -14,9 +14,7 @@
       "*": true
     },
     "enableGlobDot": true,
-    "files": [
-      "*"
-    ],
+    "files": ["*"],
     "ignorePaths": [
       "*.1",
       "*.har",
@@ -29,9 +27,7 @@
     "language": "en-GB",
     "languageSettings": [
       {
-        "dictionaries": [
-          "main"
-        ],
+        "dictionaries": ["main"],
         "languageId": "*"
       }
     ],
@@ -53,9 +49,7 @@
   "markdownlint-cli2": {
     "config": {
       "MD033": {
-        "allowed_elements": [
-          "kbd"
-        ]
+        "allowed_elements": ["kbd"]
       },
       "default": true,
       "line-length": {
@@ -73,9 +67,7 @@
     "jsonRecursiveSort": true,
     "overrides": [
       {
-        "files": [
-          "package.json"
-        ],
+        "files": ["package.json"],
         "options": {
           "parser": "json"
         }
