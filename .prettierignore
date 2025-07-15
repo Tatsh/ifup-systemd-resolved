@@ -3,6 +3,7 @@
 *.h
 *.in
 *.j2
+*.jsonnet
 *.lock
 *.log
 *~
