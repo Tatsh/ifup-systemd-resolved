@@ -59,9 +59,11 @@ iwyu
 kauthaction
 kauthexecutejob
 libifup
+libjsonnet
 mainpage
 mathjax
 mdfile
+openconnect
 openfortivpn
 pipx
 portfile
