@@ -13,4 +13,5 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 First release.
 
-[unreleased]: https://github.com/Tatsh/baldwin/-/compare/v0.0.1...HEAD
+[unreleased]: https://github.com/Tatsh/ifup-systemd-resolved/compare/v0.0.2...HEAD
+[0.0.1]: https://github.com/Tatsh/ifup-systemd-resolved/releases/tag/v0.0.1
