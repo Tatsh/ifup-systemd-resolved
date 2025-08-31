@@ -31,6 +31,9 @@ target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE ${DEBUG_FLAGS})
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE ifup ${QT_DEPS})
 
 if(BUILD_TESTS)
+  set(INSTALL_GTEST
+      OFF
+      CACHE BOOL "Disable installation of googletest" FORCE)
   enable_testing()
   include(FetchContent)
   FetchContent_Declare(googletest

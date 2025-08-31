@@ -6,6 +6,7 @@
 *.jsonnet
 *.lock
 *.log
+*.tags
 *~
 .*_cache/
 .coverage

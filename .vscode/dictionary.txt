@@ -85,6 +85,7 @@ qstringbuilder
 qstringdata
 qstringlist
 qtbase
+qtcore
 qtproject
 reflow
 slist
@@ -94,6 +95,8 @@ sstream
 stdexcept
 stdfloat
 strequal
+tagfile
+tagfiles
 tatsh
 testlist
 todolist
