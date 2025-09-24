@@ -1,37 +1,20 @@
-# Compiled
-# *.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
-*.pyc
-*.pyo
-*.egg-info/
-
-# Backups
-*~
-*.swp*
+*.info
 *.kate-swp
-
-# Miscellaneous
-*.sqlite
-
-# OS generated files
-.directory
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100/
-.Trashes/
-Thumbs.db
-
 *.log
-/build/
-/install/
-/.cache/
-node_modules/
+*~
+.*.swp
+.*_cache/
+.coverage
+.cspellcache
+.directory
+.pnp.*
 /.yarn/install-state.gz
 /CMakeUserPresets.json
-.cspellcache
-*.info
+/build/
+/dist/
+/docs/_build/
+/man/_static/
+/vcpkg_installed/
+__pycache__/
+htmlcov/
+node_modules/
