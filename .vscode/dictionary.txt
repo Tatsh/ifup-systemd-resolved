@@ -1,4 +1,6 @@
 adrienverge
+appdir
+appimage
 autobuild
 autoinstall
 automoc
@@ -11,6 +13,7 @@ bytearray
 codeowners
 commitizen
 coveragerc
+cpack
 cppdbg
 cpptools
 ctest
@@ -40,6 +43,8 @@ jsonnet
 jsonschema
 libifup
 libjsonnet
+libsystemd
+linuxdeploy
 mainpage
 mdfile
 nullptr
@@ -55,6 +60,7 @@ qtcore
 qtproject
 reflow
 schemafile
+softprops
 specialtypes
 srcs
 strequal
