@@ -10,12 +10,10 @@ autouic
 bsky
 buildsystems
 bytearray
-codeowners
 commitizen
 coveragerc
 cpack
 cppdbg
-cpptools
 ctest
 datarootdir
 dbuild
@@ -24,15 +22,13 @@ dcmake
 docstrings
 dversion
 esbenp
+foxundermoon
 gcov
 geninfo
 ggdb
 gmock
 gnucxx
-googletest
 graphviz
-gtest
-htmlcov
 iface
 ifindex
 ifup
@@ -41,6 +37,7 @@ interprocedural
 iwyu
 jsonnet
 jsonschema
+libera
 libifup
 libjsonnet
 libsystemd
@@ -51,8 +48,6 @@ nullptr
 openconnect
 openfortivpn
 pipx
-pycache
-pyyaml
 qputenv
 qstringbuilder
 qtbase
@@ -60,6 +55,7 @@ qtcore
 qtproject
 reflow
 schemafile
+shellformat
 softprops
 specialtypes
 srcs
@@ -68,7 +64,8 @@ tagfile
 tagfiles
 tatsh
 udvare
-vcpkg
+vedantmgoyal
 werror
 wextra
+winget
 wiswa
