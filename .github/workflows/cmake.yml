@@ -45,7 +45,7 @@ jobs:
         name: Rename with tag
         run: mv -v ${{github.workspace}}/ifup-systemd-resolved-*.AppImage ${{github.workspace}}/ifup-systemd-resolved-${{github.ref}}-x86_64.AppImage
       - name: 'Upload Artifacts'
-        uses: 'actions/upload-artifact@v6'
+        uses: 'actions/upload-artifact@v7'
         with:
           if-no-files-found: error
           name: ifup-systemd-resolved-${{ matrix.build-type }}-Linux
