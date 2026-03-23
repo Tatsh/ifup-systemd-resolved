@@ -6,8 +6,9 @@
 [![GitHub commits since latest release (by SemVer including pre-releases)](https://img.shields.io/github/commits-since/Tatsh/ifup-systemd-resolved/v0.0.2/master)](https://github.com/Tatsh/ifup-systemd-resolved/compare/v0.0.2...master)
 [![QA](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/qa.yml/badge.svg)](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/qa.yml)
 [![Dependabot](https://img.shields.io/badge/Dependabot-enabled-blue?logo=dependabot)](https://github.com/dependabot)
-[![GitHub Pages](https://github.com/Tatsh/ifup-systemd-resolved/badge/pages)](https://Tatsh.github.io/ifup-systemd-resolved/)
+[![GitHub Pages](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/pages.yml/badge.svg)](https://tatsh.github.io/ifup-systemd-resolved/)
 [![Stargazers](https://img.shields.io/github/stars/Tatsh/ifup-systemd-resolved?logo=github&style=flat)](https://github.com/Tatsh/ifup-systemd-resolved/stargazers)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://pre-commit.com/)
 [![CMake](https://img.shields.io/badge/CMake-6E6E6E?logo=cmake)](https://cmake.org/)
 [![Prettier](https://img.shields.io/badge/Prettier-enabled-black?logo=prettier)](https://prettier.io/)
 
