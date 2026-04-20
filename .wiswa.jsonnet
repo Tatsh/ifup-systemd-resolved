@@ -1,6 +1,7 @@
 local utils = import 'utils.libjsonnet';
 
 {
+  uses_user_defaults: true,
   project_name: 'ifup-systemd-resolved',
   version: '0.0.2',
   description: 'Hook for openfortivpn to set up DNS with systemd-resolved.',
@@ -8,9 +9,6 @@ local utils = import 'utils.libjsonnet';
   want_main: false,
   want_codeql: false,
   want_tests: false,
-  copilot+: {
-    intro: 'ifup-systemd-resolved is a tool for openfortivpn to set up DNS with systemd-resolved after connection.',
-  },
   package_json+: {
     cspell+: {
       ignorePaths+: ['*.tags'],

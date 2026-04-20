@@ -1,4 +1,5 @@
 adrienverge
+Ångström
 appdir
 appimage
 autobuild
@@ -11,6 +12,7 @@ bsky
 buildsystems
 bytearray
 commitizen
+cooldown
 coveragerc
 cpack
 cppdbg
@@ -21,8 +23,8 @@ dbuild
 dbus
 dcmake
 docstrings
-dorny
 dversion
+esac
 esbenp
 foxundermoon
 gcov
@@ -37,6 +39,7 @@ ifup
 ifupdebug
 interprocedural
 iwyu
+jinja
 jsonnet
 jsonschema
 libera
@@ -49,11 +52,13 @@ mainpage
 mdfile
 mktemp
 mypy
+npmjs
 nullptr
 oneline
 openconnect
 openfortivpn
 pipx
+pylock
 qputenv
 qstringbuilder
 qtbase
@@ -61,6 +66,7 @@ qtcore
 qtproject
 reflow
 regen
+ripgreprc
 schemafile
 shellcheck
 shellformat
@@ -80,5 +86,5 @@ werror
 wextra
 winget
 wiswa
+wiswa's
 yarnrc
-ångström
