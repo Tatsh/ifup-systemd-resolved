@@ -14,6 +14,7 @@ bytearray
 commitizen
 cooldown
 coveragerc
+coverallsapp
 cpack
 cppdbg
 ctest
@@ -42,6 +43,7 @@ iwyu
 jinja
 jsonnet
 jsonschema
+jurplel
 libera
 libifup
 libjsonnet
@@ -54,6 +56,7 @@ mktemp
 mypy
 npmjs
 nullptr
+offscreen
 oneline
 openconnect
 openfortivpn
@@ -78,6 +81,7 @@ strequal
 tagfile
 tagfiles
 tatsh
+tostring
 udvare
 vedantmgoyal
 vendored
