@@ -1,21 +1,19 @@
 ---
 jobs:
   tests:
-    env:
-      COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     permissions:
       contents: write
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Install dependencies
         run: |
-          pipx install cpp-coveralls
           sudo apt-get update
-          sudo apt-get install -y qt6-base-dev extra-cmake-modules lcov
+          sudo apt-get install -y extra-cmake-modules lcov
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v4
       - name: Configure
         run: >-
           cmake -DCMAKE_BUILD_TYPE=${{matrix.build-type}} -B ${{github.workspace}}/build
@@ -28,24 +26,25 @@ jobs:
         run: cmake --install ${{github.workspace}}/build --config ${{matrix.build-type}} --verbose
       - name: Run tests
         run: ctest --test-dir ${{github.workspace}}/build/src
+        env:
+          QT_QPA_PLATFORM: offscreen
+          QT_QUICK_BACKEND: software
       - if: ${{ matrix.build-type == 'Debug' }}
         name: Generate coverage information
         run: >-
-          geninfo
-          '--include=src/*'
-          '--exclude=google*/*'
-          --exclude=test.cpp
-          -b ${{github.workspace}}
-          -o coverage1.info
-          ${{github.workspace}}/build/src/CMakeFiles/ifup-systemd-resolved-tests.dir
+          lcov -c -d ${{github.workspace}}/build -o coverage1.lcov
+          --exclude build
+          --omit-lines '^\}$'
+          --exclude '*test.cpp'
+          --include 'src/*'
+          --keep-going
       - if: ${{ matrix.build-type == 'Debug' }}
         name: Coveralls
-        run: coveralls -i src -e src/specialtypes.cpp -e src/test.cpp '--exclude-lines-pattern=^\}$'
+        uses: coverallsapp/github-action@v2
     strategy:
       fail-fast: false
       matrix:
         build-type: [Debug, Release]
-        os: [ubuntu-24.04, ubuntu-22.04]
 name: Tests
 'on':
   pull_request:
@@ -54,3 +53,5 @@ name: Tests
   push:
     branches:
       - master
+permissions:
+  contents: 'read'

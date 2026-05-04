@@ -17,7 +17,9 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y qt6-base-dev extra-cmake-modules doxygen graphviz
+          sudo apt-get install -y doxygen extra-cmake-modules graphviz
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v4
       - name: Configure
         run: >-
           cmake -DCMAKE_BUILD_TYPE=Release -B ${{github.workspace}}/build
