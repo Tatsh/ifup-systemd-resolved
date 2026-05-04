@@ -5,7 +5,7 @@
 [![C++](https://img.shields.io/badge/C++-00599C?logo=c%2B%2B)](https://isocpp.org)
 [![GitHub tag (with filter)](https://img.shields.io/github/v/tag/Tatsh/ifup-systemd-resolved)](https://github.com/Tatsh/ifup-systemd-resolved/tags)
 [![License](https://img.shields.io/github/license/Tatsh/ifup-systemd-resolved)](https://github.com/Tatsh/ifup-systemd-resolved/blob/master/LICENSE.txt)
-[![GitHub commits since latest release (by SemVer including pre-releases)](https://img.shields.io/github/commits-since/Tatsh/ifup-systemd-resolved/v0.0.2/master)](https://github.com/Tatsh/ifup-systemd-resolved/compare/v0.0.2...master)
+[![GitHub commits since latest release (by SemVer including pre-releases)](https://img.shields.io/github/commits-since/Tatsh/ifup-systemd-resolved/v0.0.3/master)](https://github.com/Tatsh/ifup-systemd-resolved/compare/v0.0.3...master)
 [![Dependabot](https://img.shields.io/badge/Dependabot-enabled-blue?logo=dependabot)](https://github.com/dependabot)
 [![GitHub Pages](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/pages.yml/badge.svg)](https://tatsh.github.io/ifup-systemd-resolved/)
 [![Stargazers](https://img.shields.io/github/stars/Tatsh/ifup-systemd-resolved?logo=github&style=flat)](https://github.com/Tatsh/ifup-systemd-resolved/stargazers)

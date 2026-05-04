@@ -3,7 +3,7 @@ local utils = import 'utils.libjsonnet';
 {
   uses_user_defaults: true,
   project_name: 'ifup-systemd-resolved',
-  version: '0.0.2',
+  version: '0.0.3',
   description: 'Hook for openfortivpn to set up DNS with systemd-resolved.',
   keywords: ['openconnect', 'systemd', 'vpn'],
   want_main: false,
