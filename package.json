@@ -1,4 +1,9 @@
 {
+  "_wiswa": {
+    "commandLine": "wiswa",
+    "lastRun": "2026-05-08T00:14:06Z",
+    "version": "3d1ef61"
+  },
   "contributors": ["Andrew Udvare <audvare@gmail.com>"],
   "cspell": {
     "cache": {
@@ -107,7 +112,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Tatsh/ifup-systemd-resolved.git"
+    "url": "git+https://github.com/Tatsh/ifup-systemd-resolved.git"
   },
   "scripts": {
     "build": "cmake --preset=default -DBUILD_DOCS=ON && cmake --build build",

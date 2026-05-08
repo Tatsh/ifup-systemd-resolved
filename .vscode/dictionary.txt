@@ -29,7 +29,6 @@ esac
 esbenp
 foxundermoon
 gcov
-geninfo
 ggdb
 gmock
 gnucxx
@@ -48,7 +47,6 @@ libera
 libifup
 libjsonnet
 libsonnet
-libsystemd
 linuxdeploy
 mainpage
 mdfile
@@ -60,7 +58,7 @@ offscreen
 oneline
 openconnect
 openfortivpn
-pipx
+preapproved
 pylock
 qputenv
 qstringbuilder
@@ -83,12 +81,10 @@ tagfiles
 tatsh
 tostring
 udvare
-vedantmgoyal
 vendored
 venv
 werror
 wextra
-winget
 wiswa
 wiswa's
 yarnrc
