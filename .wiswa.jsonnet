@@ -5,12 +5,16 @@ local utils = import 'utils.libjsonnet';
   project_name: 'ifup-systemd-resolved',
   version: '0.0.3',
   description: 'Hook for openfortivpn to set up DNS with systemd-resolved.',
-  social+: {
-    custom_badges: [
-      '[![Tests](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/tests.yml/badge.svg)](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/tests.yml)',
-      '[![Coverage Status](https://coveralls.io/repos/github/Tatsh/ifup-systemd-resolved/badge.svg?branch=master)](https://coveralls.io/github/Tatsh/ifup-systemd-resolved?branch=master)',
-    ],
-  },
+  custom_project_badges: [
+    {
+      anchor: '[![Tests](https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/tests.yml/badge.svg)]',
+      href: 'https://github.com/Tatsh/ifup-systemd-resolved/actions/workflows/tests.yml',
+    },
+    {
+      anchor: '[![Coverage Status](https://coveralls.io/repos/github/Tatsh/ifup-systemd-resolved/badge.svg?branch=master)]',
+      href: 'https://coveralls.io/github/Tatsh/ifup-systemd-resolved?branch=master',
+    },
+  ],
   keywords: ['openconnect', 'systemd', 'vpn'],
   want_main: false,
   want_codeql: false,

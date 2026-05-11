@@ -6,7 +6,6 @@ autobuild
 autoinstall
 automoc
 autorcc
-autosort
 autouic
 bsky
 buildsystems
@@ -52,7 +51,6 @@ mainpage
 mdfile
 mktemp
 mypy
-npmjs
 nullptr
 offscreen
 oneline
@@ -60,6 +58,7 @@ openconnect
 openfortivpn
 preapproved
 pylock
+pyproject
 qputenv
 qstringbuilder
 qtbase
@@ -81,10 +80,15 @@ tagfiles
 tatsh
 tostring
 udvare
+undraft
+undrafted
+vedantmgoyal
 vendored
 venv
 werror
 wextra
+winget
 wiswa
 wiswa's
+worktree
 yarnrc
