@@ -6,7 +6,7 @@
     },
     {
       "name": "qtbase",
-      "version>=": "6.10.3"
+      "version>=": "6.11.0"
     }
   ],
   "description": "Hook for openfortivpn to set up DNS with systemd-resolved.",
