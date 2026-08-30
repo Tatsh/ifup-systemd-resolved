@@ -19,6 +19,7 @@ local utils = import 'utils.libjsonnet';
   want_main: false,
   want_codeql: false,
   want_tests: false,
+  want_winget: false,
   package_json+: {
     cspell+: {
       ignorePaths+: ['*.tags'],
@@ -34,6 +35,15 @@ local utils = import 'utils.libjsonnet';
   },
   github+: {
     pages_using_jekyll: false,
+    zizmor: {
+      rules: {
+        // The hand-maintained release.yml consumes workflow_run to gate the draft release on the
+        // build and QA workflows.
+        'dangerous-triggers': {
+          ignore: ['release.yml'],
+        },
+      },
+    },
   },
   vscode+: {
     c_cpp+: {
@@ -95,11 +105,11 @@ local utils = import 'utils.libjsonnet';
     dependencies: [
       {
         name: 'ecm',
-        'version>=': '6.7.0',
+        'version>=': utils.latestVcpkgPortVersion('ecm'),
       },
       {
         name: 'qtbase',
-        'version>=': '6.8.3',
+        'version>=': utils.latestVcpkgPortVersion('qtbase'),
       },
     ],
     documentation: 'https://tatsh.github.io/ifup-systemd-resolved/',

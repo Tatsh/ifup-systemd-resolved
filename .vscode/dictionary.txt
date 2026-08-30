@@ -1,5 +1,4 @@
 adrienverge
-Ångström
 appdir
 appimage
 autobuild
@@ -11,7 +10,6 @@ bsky
 buildsystems
 bytearray
 commitizen
-cooldown
 coveragerc
 coverallsapp
 cpack
@@ -32,6 +30,7 @@ ggdb
 gmock
 gnucxx
 graphviz
+handoff
 iface
 ifindex
 ifup
@@ -41,7 +40,6 @@ iwyu
 jinja
 jsonnet
 jsonschema
-jurplel
 libera
 libifup
 libjsonnet
@@ -51,6 +49,7 @@ mainpage
 mdfile
 mktemp
 mypy
+nullglob
 nullptr
 offscreen
 oneline
@@ -67,13 +66,16 @@ qtproject
 reflow
 regen
 ripgreprc
+sbclaude
 schemafile
 shellcheck
 shellformat
+shopt
 snapcraft
 softprops
 specialtypes
 srcs
+statusline
 strequal
 tagfile
 tagfiles
@@ -82,7 +84,6 @@ tostring
 udvare
 undraft
 undrafted
-vedantmgoyal
 vendored
 venv
 werror
@@ -92,3 +93,5 @@ wiswa
 wiswa's
 worktree
 yarnrc
+zizmor
+Ångström

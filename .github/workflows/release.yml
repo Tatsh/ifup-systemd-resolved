@@ -3,7 +3,9 @@ jobs:
   publish-release:
     runs-on: 'ubuntu-latest'
     steps:
-      - uses: 'actions/checkout@v7'
+      - uses: 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1'
+        with:
+          persist-credentials: false
       - env:
           GH_TOKEN: '${{ github.token }}'
           HEAD_SHA: '${{ github.event.workflow_run.head_sha }}'
@@ -43,17 +45,23 @@ jobs:
       - env:
           GH_TOKEN: '${{ github.token }}'
           HEAD_SHA: '${{ github.event.workflow_run.head_sha }}'
+          REPO: '${{ github.repository }}'
           TAG: '${{ steps.guard.outputs.tag }}'
         id: 'check'
         if: "steps.guard.outputs.proceed == 'true'"
         name: 'Check all required workflows succeeded'
         run: |
-          tag="$TAG"
           sha="$HEAD_SHA"
           all_success=true
           for workflow in Build Prettier Spelling Tests clang-format markdownlint; do
-            run=$(gh run list --workflow "$workflow" --commit "$sha" --json status,conclusion --jq '.[0]')
+            run=$(gh run list --repo "$REPO" --workflow "$workflow" --commit "$sha" --json status,conclusion --jq '.[0]')
             if [[ -z "$run" || "$run" == 'null' ]]; then
+              # Build is the only workflow that produces release assets, so a tag it never ran
+              # for cannot yield a complete release.
+              if [[ "$workflow" == 'Build' ]]; then
+                echo "::error::Required workflow '$workflow' did not run for ${sha}."
+                exit 1
+              fi
               echo "Workflow '$workflow' did not run for this commit; treating as optional."
               continue
             fi
@@ -80,14 +88,37 @@ jobs:
             echo 'Not all workflows have completed yet.'
             exit 0
           fi
-          echo "All required workflows succeeded for ${tag}."
-          echo "tag=${tag}" >> "$GITHUB_ENV"
-          echo "ready=true" >> "$GITHUB_OUTPUT"
+          echo "All required workflows succeeded for ${TAG}."
+          echo 'ready=true' >> "$GITHUB_OUTPUT"
       - env:
           GH_TOKEN: '${{ github.token }}'
+          REPO: '${{ github.repository }}'
+          TAG: '${{ steps.guard.outputs.tag }}'
+        if: "steps.check.outputs.ready == 'true'"
+        name: 'Check every expected asset is attached'
+        run: |
+          expected=(
+            "ifup-systemd-resolved-${TAG}-aarch64.AppImage"
+            "ifup-systemd-resolved-${TAG}-x86_64.AppImage"
+          )
+          attached=$(gh release view --repo "$REPO" "$TAG" --json assets \
+            --jq '.assets[] | select(.state == "uploaded" and .size > 0) | .name')
+          missing=()
+          for asset in "${expected[@]}"; do
+            grep -qxF "$asset" <<< "$attached" || missing+=("$asset")
+          done
+          if [[ ${#missing[@]} -gt 0 ]]; then
+            echo "::error::Release ${TAG} is missing ${#missing[@]} expected asset(s): ${missing[*]}"
+            exit 1
+          fi
+          echo "All ${#expected[@]} expected assets are attached to ${TAG}."
+      - env:
+          GH_TOKEN: '${{ github.token }}'
+          REPO: '${{ github.repository }}'
+          TAG: '${{ steps.guard.outputs.tag }}'
         if: "steps.check.outputs.ready == 'true'"
         name: 'Publish release'
-        run: 'gh release edit "$tag" --draft=false'
+        run: 'gh release edit --repo "$REPO" "$TAG" --draft=false'
       - env:
           GH_TOKEN: '${{ github.token }}'
           REPO: '${{ github.repository }}'
