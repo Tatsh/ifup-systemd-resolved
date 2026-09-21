@@ -40,6 +40,7 @@ iwyu
 jinja
 jsonnet
 jsonschema
+jurplel
 libera
 libifup
 libjsonnet
