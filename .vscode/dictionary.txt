@@ -50,8 +50,10 @@ mainpage
 mdfile
 mktemp
 mypy
+noone
 nullglob
 nullptr
+numpydoc
 offscreen
 oneline
 openconnect
@@ -67,7 +69,6 @@ qtproject
 reflow
 regen
 ripgreprc
-sbclaude
 schemafile
 shellcheck
 shellformat
@@ -92,7 +93,6 @@ wextra
 winget
 wiswa
 wiswa's
-worktree
 yarnrc
 zizmor
 Ångström

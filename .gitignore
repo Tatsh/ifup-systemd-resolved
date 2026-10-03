@@ -1,6 +1,7 @@
 *.info
 *.kate-swp
 *.log
+*.tsbuildinfo
 *~
 .*.swp
 .*_cache/
@@ -41,5 +42,3 @@
 /session-recover.yaml
 /vcpkg_installed/
 node_modules/
-
-/.sbclaude-venv/
