@@ -58,6 +58,7 @@ offscreen
 oneline
 openconnect
 openfortivpn
+pipx
 preapproved
 pylock
 pyproject
