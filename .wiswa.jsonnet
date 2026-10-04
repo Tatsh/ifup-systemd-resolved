@@ -42,6 +42,9 @@ local utils = import 'utils.libjsonnet';
         'dangerous-triggers': {
           ignore: ['release.yml'],
         },
+        'undocumented-permissions': {
+          disable: true,
+        },
       },
     },
   },
