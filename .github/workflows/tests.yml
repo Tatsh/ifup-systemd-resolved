@@ -45,7 +45,6 @@ jobs:
         run: >-
           lcov -c -d "${GITHUB_WORKSPACE}/build" -o coverage1.lcov
           --exclude build
-          --omit-lines '^\}$'
           --exclude '*test.cpp'
           --include 'src/*'
           --keep-going
