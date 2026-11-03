@@ -11,6 +11,7 @@ bsky
 buildsystems
 bytearray
 commitizen
+copytree
 coveragerc
 coverallsapp
 cpack
@@ -38,7 +39,6 @@ ifindex
 ifup
 ifupdebug
 interprocedural
-iterdir
 iwyu
 jinja
 jsonnet
@@ -76,11 +76,13 @@ qtproject
 reflow
 regen
 ripgreprc
+rmtree
 sbclaude
 schemafile
 shellcheck
 shellformat
 shopt
+shutil
 snapcraft
 softprops
 specialtypes
