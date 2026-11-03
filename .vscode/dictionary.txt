@@ -63,6 +63,7 @@ oneline
 openconnect
 openfortivpn
 pathlib
+pipefail
 pipx
 preapproved
 pylock
