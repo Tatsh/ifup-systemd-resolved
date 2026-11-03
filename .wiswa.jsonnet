@@ -17,7 +17,7 @@ local utils = import 'utils.libjsonnet';
   ],
   keywords: ['openconnect', 'systemd', 'vpn'],
   want_main: false,
-  want_codeql: false,
+  want_codeql: true,
   want_tests: false,
   want_winget: false,
   package_json+: {
@@ -34,6 +34,11 @@ local utils = import 'utils.libjsonnet';
     },
   },
   github+: {
+    codeql+: {
+      languages: ['actions'],
+      runs_on: 'ubuntu-latest',
+      workflow_file: 'codeql-actions.yml',
+    },
     pages_using_jekyll: false,
     zizmor: {
       rules: {
