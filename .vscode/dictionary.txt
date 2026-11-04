@@ -73,10 +73,12 @@ qstringbuilder
 qtbase
 qtcore
 qtproject
+rdparty
 reflow
 regen
 ripgreprc
 rmtree
+sarif
 sbclaude
 schemafile
 shellcheck
