@@ -1,5 +1,4 @@
 adrienverge
-analyzer
 appdir
 appimage
 autobuild
@@ -11,7 +10,6 @@ bsky
 buildsystems
 bytearray
 commitizen
-copytree
 coveragerc
 coverallsapp
 cpack
@@ -24,7 +22,6 @@ dbus
 dcmake
 docstrings
 dversion
-elif
 esac
 esbenp
 foxundermoon
@@ -62,8 +59,6 @@ offscreen
 oneline
 openconnect
 openfortivpn
-pathlib
-pipefail
 pipx
 preapproved
 pylock
@@ -77,14 +72,12 @@ rdparty
 reflow
 regen
 ripgreprc
-rmtree
 sarif
 sbclaude
 schemafile
 shellcheck
 shellformat
 shopt
-shutil
 snapcraft
 softprops
 specialtypes
